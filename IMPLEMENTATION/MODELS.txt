@@ -1,0 +1,12 @@
+ASHISH PATEL TENNIS
+PEGASUS - 
+        # model_name = 'google/pegasus-xsum' #ABSTRACTIVE
+        # model_name = 'google/pegasus-large' #EXTRACTIVE
+        # model_name = 'google/pegasus-reddit_tifu' #ABSTRACTIVE
+RNN LSTM 
+        * DATASET - BBC NEW SUMMARY
+            # BUSINESS
+            # ENTERTAINMENT
+            # POLITICS
+            # SPORT
+            # TECH    

@@ -1,3 +1,7 @@
 https://github.com/keithito/tacotron
 https://www.analyticsvidhya.com/blog/2021/07/speech-to-text-conversion-an-application-of-nlp/
 https://www.instagram.com/p/CRRduzsj6v4/?utm_medium=copy_link
+
+
+SHWETA
+https://jairus-textsummarizer.herokuapp.com/

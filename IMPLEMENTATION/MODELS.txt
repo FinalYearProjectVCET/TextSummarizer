@@ -1,4 +1,4 @@
-ASHISH PATEL TENNIS
+ASHISH PATEL TENNIS #EXTRACTIVE
 PEGASUS - 
         # model_name = 'google/pegasus-xsum' #ABSTRACTIVE
         # model_name = 'google/pegasus-large' #EXTRACTIVE
@@ -9,4 +9,7 @@ RNN LSTM
             # ENTERTAINMENT
             # POLITICS
             # SPORT
-            # TECH    
+            # TECH
+
+
+

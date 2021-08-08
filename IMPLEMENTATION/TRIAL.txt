@@ -21,7 +21,7 @@ GENSIM (EXTRACTIVE) (PRETRAINED MODEL) (DATASET UNKNOWN) [DEPENDS ON THE USER]
         3] Pick the top most significant sentences
 
     eg 1) RATIO: 0.3 |||| ARTICLE WORDS : 5940 ||OUTPUT: 2298 words
-    eg 1) RATIO: 0.2 |||| ARTICLE WORDS : 5940 ||OUTPUT: 1545 words
+    eg 2) RATIO: 0.2 |||| ARTICLE WORDS : 5940 ||OUTPUT: 1545 words
 
 TRIAL PASSAGE 
 

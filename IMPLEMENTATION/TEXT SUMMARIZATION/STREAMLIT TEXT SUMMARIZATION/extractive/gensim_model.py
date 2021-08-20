@@ -9,8 +9,8 @@ class GensimClass:
         lengthtext=len(text)
         # print(type(givenratio))
         summarized_content = gensim.summarization.summarize(text, ratio=givenratio)
-        print(summarized_content)
+        # print(summarized_content)
         lengthsumm = len(summarized_content)
         # print(lengthtext)
         # print(lengthsumm)
-        return summarized_content,lengthsumm,lengthtext
+        return summarized_content

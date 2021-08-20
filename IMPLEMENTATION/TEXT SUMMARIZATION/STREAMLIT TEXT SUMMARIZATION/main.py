@@ -11,7 +11,7 @@ def main():
         gensimobj.gensim_method(gettext,getratio)
     elif getmodel == "textrank":
         gensimobj = textrank_model.TextRankClass()
-        gensimobj.text_rank_method()
+        gensimobj.text_rank_method(gettext)
 
 if __name__ == '__main__':
     main()

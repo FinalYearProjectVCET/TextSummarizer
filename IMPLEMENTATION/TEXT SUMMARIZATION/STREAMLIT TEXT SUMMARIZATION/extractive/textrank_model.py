@@ -94,4 +94,4 @@ class TextRankClass:
             print("------------------------------------------------------------------------------------------------------------------")
 
         # let's begin
-        generate_summary( "D:\study docs\final year\TextSummarizer\IMPLEMENTATION\TEXT SUMMARIZATION\STREAMLIT TEXT SUMMARIZATION\extractive\predestination.txt", 10)
+        generate_summary( "predestination.txt", 10)

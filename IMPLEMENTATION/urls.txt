@@ -12,3 +12,5 @@ https://github.com/shreyans29/thesemicolon
 https://iq.opengenus.org/text-summarization-using-rnn/
 You9:42 PM
 https://github.com/chen0040/keras-text-summarization
+
+https://youtu.be/VAMKuRAh2nc

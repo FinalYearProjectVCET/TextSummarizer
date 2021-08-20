@@ -1,6 +1,6 @@
 import gensim 
 
-class Gensim_Class:
+class GensimClass:
 
     def gensim_method(taketext,takeratio):
         

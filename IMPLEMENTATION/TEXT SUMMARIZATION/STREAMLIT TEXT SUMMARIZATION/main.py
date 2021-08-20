@@ -1,11 +1,13 @@
 import extractive.gensim_model as gensim_model
 import extractive.textrank_model as textrank_model
 import extractive.pegasus_model as pegasus_model
+import extractive.rulebased_model as rulebased_model
 
 def main():
     print("Hello World")
     gettext = input("give text")
     getratio = input("give ratio")
+    getno=input("give no")
     getmodel = input("give model")
     if getmodel == "gensim":
         obj = gensim_model.GensimClass()
@@ -19,6 +21,10 @@ def main():
         obj = pegasus_model.PegasusClass()
         obj.xlargeModel()
         summarized_content = obj.predictText(gettext)
+        print(summarized_content)
+    elif getmodel =="rulebased":
+        obj = rulebased_model.RuleBased()
+        summarized_content = obj.rule_summarize(gettext,getno)
         print(summarized_content)
 if __name__ == '__main__':
     main()

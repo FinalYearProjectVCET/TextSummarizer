@@ -84,7 +84,7 @@ def main():
                             input_text, input_ratio)
                         print(summarized_content)
                     elif(summarization_technique == 2):
-                        num = input("GIVE NUM : ")
+                        num = input("GIVE NUMBER OF LINES OF SUMMARY NEEDED : ")
                         obj = rulebased_model.RuleBased()
                         summarized_content = obj.rule_summarize(
                             input_text, num)

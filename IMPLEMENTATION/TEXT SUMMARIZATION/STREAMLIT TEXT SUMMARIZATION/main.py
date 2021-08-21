@@ -9,83 +9,6 @@ import extractive.rulebased_model as rulebased_model
 def getInput():
     return input("Enter your text : ")
 
-
-# def abstractiveSummarization(input_text):
-#     back = False
-#     while(True):
-#         print("\nABSTRACTIVE SUMMARIZATION TECHNIQUES : ")
-#         print("1] PEGASUS HEAD")
-#         print("2] PEGASUS SUMMARY")
-
-#         print("\nPress 0 to go back.")
-#         print("Press -1 to exit.")
-
-#         summarization_technique = int(
-#             input("\nSELECT SUMMARIZATION TECHNIQUE : "))
-#         if(summarization_technique == -1):
-#             break
-#         elif(summarization_technique == 0):
-#             back = True
-#             break
-#         elif(summarization_technique == 1):
-#             obj = pegasus_head.PegasusClass()
-#             obj.xsumModel()
-#             summarized_content = obj.predictText(input_text)
-#             print(summarized_content)
-#         elif(summarization_technique == 2):
-#             obj = pegasus_summ.PegasusClass()
-#             obj.redditTifuModel()
-#             summarized_content = obj.predictText(input_text)
-#             print(summarized_content)
-
-#     if(back):
-#         break
-
-
-# def extractiveSummarization(input_text):
-
-#     back = False
-#     while(True):
-#         print("\nEXTRACTIVE SUMMARIZATION TECHNIQUES : ")
-#         print("1] GENSIM")
-#         print("2] RULE BASED")
-#         print("3] TEXT RANK")
-#         print("4] PEGASUS")
-#         print("\nPress 0 to go back.")
-#         print("Press -1 to exit.")
-
-#         summarization_technique = int(
-#             input("\nSELECT SUMMARIZATION TECHNIQUE : "))
-#         if(summarization_technique == -1):
-#             break
-#         elif(summarization_technique == 0):
-#             back = True
-#             break
-#         elif(summarization_technique == 1):
-#             input_ratio = input(
-#                 "RATIO OF TEXT TO BE SUMMARIZED (BETWEEN 0 AND 1) : ")
-#             obj = gensim_model.GensimClass()
-#             summarized_content = obj.gensim_method(input_text, input_ratio)
-#             print(summarized_content)
-#         elif(summarization_technique == 2):
-#             num = input("GIVE NUM : ")
-#             obj = rulebased_model.RuleBased()
-#             summarized_content = obj.rule_summarize(input_text, num)
-#             print(summarized_content)
-#         elif(summarization_technique == 3):
-#             obj = textrank_model.TextRankClass()
-#             summarized_content = obj.text_rank_method(input_text)
-#             print(summarized_content)
-#         elif(summarization_technique == 4):
-#             obj = pegasus_model.PegasusClass()
-#             obj.xlargeModel()
-#             summarized_content = obj.predictText(input_text)
-#             print(summarized_content)
-
-#     if(back):
-#         break
-
-
 def main():
     print("\n*-*-*-*-*-*-*-*-*-*TEXT SUMMARIZATION*-*-*-*-*-*-*-*-*-*\n")
 
@@ -182,3 +105,79 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# def abstractiveSummarization(input_text):
+#     back = False
+#     while(True):
+#         print("\nABSTRACTIVE SUMMARIZATION TECHNIQUES : ")
+#         print("1] PEGASUS HEAD")
+#         print("2] PEGASUS SUMMARY")
+
+#         print("\nPress 0 to go back.")
+#         print("Press -1 to exit.")
+
+#         summarization_technique = int(
+#             input("\nSELECT SUMMARIZATION TECHNIQUE : "))
+#         if(summarization_technique == -1):
+#             break
+#         elif(summarization_technique == 0):
+#             back = True
+#             break
+#         elif(summarization_technique == 1):
+#             obj = pegasus_head.PegasusClass()
+#             obj.xsumModel()
+#             summarized_content = obj.predictText(input_text)
+#             print(summarized_content)
+#         elif(summarization_technique == 2):
+#             obj = pegasus_summ.PegasusClass()
+#             obj.redditTifuModel()
+#             summarized_content = obj.predictText(input_text)
+#             print(summarized_content)
+
+#     if(back):
+#         break
+
+
+# def extractiveSummarization(input_text):
+
+#     back = False
+#     while(True):
+#         print("\nEXTRACTIVE SUMMARIZATION TECHNIQUES : ")
+#         print("1] GENSIM")
+#         print("2] RULE BASED")
+#         print("3] TEXT RANK")
+#         print("4] PEGASUS")
+#         print("\nPress 0 to go back.")
+#         print("Press -1 to exit.")
+
+#         summarization_technique = int(
+#             input("\nSELECT SUMMARIZATION TECHNIQUE : "))
+#         if(summarization_technique == -1):
+#             break
+#         elif(summarization_technique == 0):
+#             back = True
+#             break
+#         elif(summarization_technique == 1):
+#             input_ratio = input(
+#                 "RATIO OF TEXT TO BE SUMMARIZED (BETWEEN 0 AND 1) : ")
+#             obj = gensim_model.GensimClass()
+#             summarized_content = obj.gensim_method(input_text, input_ratio)
+#             print(summarized_content)
+#         elif(summarization_technique == 2):
+#             num = input("GIVE NUM : ")
+#             obj = rulebased_model.RuleBased()
+#             summarized_content = obj.rule_summarize(input_text, num)
+#             print(summarized_content)
+#         elif(summarization_technique == 3):
+#             obj = textrank_model.TextRankClass()
+#             summarized_content = obj.text_rank_method(input_text)
+#             print(summarized_content)
+#         elif(summarization_technique == 4):
+#             obj = pegasus_model.PegasusClass()
+#             obj.xlargeModel()
+#             summarized_content = obj.predictText(input_text)
+#             print(summarized_content)
+
+#     if(back):
+#         break
+

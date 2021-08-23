@@ -4,16 +4,27 @@ import extractive.pegasus_model as pegasus_model
 import abstractive.pegasus_head as pegasus_head
 import abstractive.pegasus_summ as pegasus_summ
 import extractive.rulebased_model as rulebased_model
+import speechtotext.speechtotext_model as speechtotext_model
 
 
 def getInput():
     return input("Enter your text : ")
 
+def getspeechInput():
+    inputfilename = input("give audio file name ")
+    obj = speechtotext_model.SpeechToTextClass()
+    texttoconvert = obj.speechtotext_method(inputfilename)
+    return texttoconvert
+
 def main():
     print("\n*-*-*-*-*-*-*-*-*-*TEXT SUMMARIZATION*-*-*-*-*-*-*-*-*-*\n")
 
     while(True):
-        input_text = getInput()
+        opt = input("\nselect input type\n1. text \n2. speech \n")
+        if opt == 1 :
+            input_text = getInput()
+        elif opt == 2 :
+            input_text = getspeechInput()
         # takeInput = False
         while(True):
             print("\nSUMMARIZATION TYPES")

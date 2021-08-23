@@ -20,7 +20,7 @@ def main():
     print("\n*-*-*-*-*-*-*-*-*-*TEXT SUMMARIZATION*-*-*-*-*-*-*-*-*-*\n")
 
     while(True):
-        opt = input("\nselect input type\n1. text \n2. speech \n")
+        opt = int(input("\nselect input type\n1. text \n2. speech \n"))
         if opt == 1 :
             input_text = getInput()
         elif opt == 2 :

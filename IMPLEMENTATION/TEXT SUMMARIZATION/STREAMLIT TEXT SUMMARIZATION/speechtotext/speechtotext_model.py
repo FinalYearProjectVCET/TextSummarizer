@@ -1,12 +1,13 @@
-# importing libraries 
-import speech_recognition as sr 
-import os 
+# importing libraries
+import speech_recognition as sr
+import os
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
+
 class SpeechToTextClass:
 
-    def speechtotext_method(self,inputfilename):
+    def speechtotext_method(self, inputfilename):
         # create a speech recognition object
         r = sr.Recognizer()
 
@@ -18,22 +19,22 @@ class SpeechToTextClass:
             and apply speech recognition on each of these chunks
             """
             # open the audio file using pydub
-            sound = AudioSegment.from_wav(path)  
+            sound = AudioSegment.from_wav(path)
             # split audio sound where silence is 700 miliseconds or more and get chunks
             chunks = split_on_silence(sound,
-                # experiment with this value for your target audio file
-                min_silence_len = 500,
-                # adjust this per requirement
-                silence_thresh = sound.dBFS-14,
-                # keep the silence for 1 second, adjustable as well
-                keep_silence=500,
-            )
+                                      # experiment with this value for your target audio file
+                                      min_silence_len=500,
+                                      # adjust this per requirement
+                                      silence_thresh=sound.dBFS-14,
+                                      # keep the silence for 1 second, adjustable as well
+                                      keep_silence=500,
+                                      )
             folder_name = "audio-chunks"
             # create a directory to store the audio chunks
             if not os.path.isdir(folder_name):
                 os.mkdir(folder_name)
             whole_text = ""
-            # process each chunk 
+            # process each chunk
             for i, audio_chunk in enumerate(chunks, start=1):
                 # export audio chunk and save it in
                 # the `folder_name` directory.
@@ -57,4 +58,5 @@ class SpeechToTextClass:
         path = inputfilename
         # path = 'speech.wav'
         # print('speech.wav')
-        print("\nFull text:", get_large_audio_transcription(path))
+        text = get_large_audio_transcription(path)
+        return text

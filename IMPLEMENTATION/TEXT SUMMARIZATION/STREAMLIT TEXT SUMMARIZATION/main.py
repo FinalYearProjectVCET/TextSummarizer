@@ -10,21 +10,25 @@ import speechtotext.speechtotext_model as speechtotext_model
 def getInput():
     return input("Enter your text : ")
 
+
 def getspeechInput():
     inputfilename = input("give audio file name ")
     obj = speechtotext_model.SpeechToTextClass()
     texttoconvert = obj.speechtotext_method(inputfilename)
     return texttoconvert
 
+
 def main():
     print("\n*-*-*-*-*-*-*-*-*-*TEXT SUMMARIZATION*-*-*-*-*-*-*-*-*-*\n")
 
     while(True):
-        opt = int(input("\nselect input type\n1. text \n2. speech \n"))
-        if opt == 1 :
+        input_type = int(input("\nSELECT INPUT TYPE\n1] TEXT \n2] SPEECH \n"))
+        if input_type == 1:
             input_text = getInput()
-        elif opt == 2 :
+        elif input_type == 2:
             input_text = getspeechInput()
+            print(type(input_type))
+            print(input_text)
         # takeInput = False
         while(True):
             print("\nSUMMARIZATION TYPES")
@@ -95,7 +99,8 @@ def main():
                             input_text, input_ratio)
                         print(summarized_content)
                     elif(summarization_technique == 2):
-                        num = input("GIVE NUMBER OF LINES OF SUMMARY NEEDED : ")
+                        num = input(
+                            "GIVE NUMBER OF LINES OF SUMMARY NEEDED : ")
                         obj = rulebased_model.RuleBased()
                         summarized_content = obj.rule_summarize(
                             input_text, num)
@@ -191,4 +196,3 @@ if __name__ == '__main__':
 
 #     if(back):
 #         break
-

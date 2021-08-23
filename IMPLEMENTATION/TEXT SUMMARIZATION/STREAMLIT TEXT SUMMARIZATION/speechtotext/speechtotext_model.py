@@ -54,7 +54,7 @@ class SpeechToTextClass:
             # return the text for all chunks detected
             return whole_text
 
-        # path = inputfilename
-        path = 'speech.wav'
+        path = inputfilename
+        # path = 'speech.wav'
         # print('speech.wav')
         print("\nFull text:", get_large_audio_transcription(path))

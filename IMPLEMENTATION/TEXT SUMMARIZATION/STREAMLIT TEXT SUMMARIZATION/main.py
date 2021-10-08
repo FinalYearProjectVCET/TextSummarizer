@@ -11,11 +11,23 @@ def getInput():
     return input("Enter your text : ")
 
 
-def getspeechInput():
-    inputfilename = input("give audio file name ")
+def getSpeechInput():
+    inputfilename = input("Give Audio File Name: ")
     obj = speechtotext_model.SpeechToTextClass()
     texttoconvert = obj.speechtotext_method(inputfilename)
     return texttoconvert
+
+
+def convertTextToSpeech(text):
+
+    import pyttsx3
+
+    engine = pyttsx3.init()
+
+    engine.say(text)
+    engine.setProperty('rate', 120)
+    engine.setProperty('volume', 0.9)
+    engine.runAndWait()
 
 
 def main():
@@ -26,7 +38,7 @@ def main():
         if input_type == 1:
             input_text = getInput()
         elif input_type == 2:
-            input_text = getspeechInput()
+            input_text = getSpeechInput()
             print(type(input_type))
             print(input_text)
         # takeInput = False
@@ -65,11 +77,17 @@ def main():
                         obj.xsumModel()
                         summarized_content = obj.predictText(input_text)
                         print(summarized_content)
+                        speech = input(("\nDo you want speech output(Y/N): "))
+                        if(speech == "Y"):
+                            convertTextToSpeech(summarized_content)
                     elif(summarization_technique == 2):
                         obj = pegasus_summ.PegasusClass()
                         obj.redditTifuModel()
                         summarized_content = obj.predictText(input_text)
                         print(summarized_content)
+                        speech = input(("\nDo you want speech output(Y/N): "))
+                        if(speech == "Y"):
+                            convertTextToSpeech(summarized_content)
 
                 if(back):
                     continue
@@ -98,6 +116,10 @@ def main():
                         summarized_content = obj.gensim_method(
                             input_text, input_ratio)
                         print(summarized_content)
+
+                        speech = input(("\nDo you want speech output(Y/N): "))
+                        if(speech == "Y"):
+                            convertTextToSpeech(summarized_content)
                     elif(summarization_technique == 2):
                         num = input(
                             "GIVE NUMBER OF LINES OF SUMMARY NEEDED : ")
@@ -105,15 +127,27 @@ def main():
                         summarized_content = obj.rule_summarize(
                             input_text, num)
                         print(summarized_content)
+
+                        speech = input(("\nDo you want speech output(Y/N): "))
+                        if(speech == "Y"):
+                            convertTextToSpeech(summarized_content)
                     elif(summarization_technique == 3):
                         obj = textrank_model.TextRankClass()
                         summarized_content = obj.text_rank_method(input_text)
                         print(summarized_content)
+
+                        speech = input(("\nDo you want speech output(Y/N): "))
+                        if(speech == "Y"):
+                            convertTextToSpeech(summarized_content)
                     elif(summarization_technique == 4):
                         obj = pegasus_model.PegasusClass()
                         obj.xlargeModel()
                         summarized_content = obj.predictText(input_text)
                         print(summarized_content)
+
+                        speech = input(("\nDo you want speech output(Y/N): "))
+                        if(speech == "Y"):
+                            convertTextToSpeech(summarized_content)
 
                 if(back):
                     continue

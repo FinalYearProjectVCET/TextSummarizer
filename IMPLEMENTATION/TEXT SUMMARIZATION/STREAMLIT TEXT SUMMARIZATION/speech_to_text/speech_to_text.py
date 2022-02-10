@@ -5,9 +5,9 @@ from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
 
-class SpeechToTextClass:
+class SpeechToText:
 
-    def speechtotext_method(self, inputfilename):
+    def convertSpeechToText(self, inputfilename):
         # create a speech recognition object
         r = sr.Recognizer()
 

@@ -4,7 +4,7 @@ import extractive.pegasus_model as pegasus_model
 import abstractive.pegasus_head as pegasus_head
 import abstractive.pegasus_summ as pegasus_summ
 import extractive.rulebased_model as rulebased_model
-import speechtotext.speechtotext_model as speechtotext_model
+import speech_to_text.speech_to_text as speechtotext_model
 
 
 def getInput():
@@ -13,8 +13,8 @@ def getInput():
 
 def getSpeechInput():
     inputfilename = input("Give Audio File Name: ")
-    obj = speechtotext_model.SpeechToTextClass()
-    texttoconvert = obj.speechtotext_method(inputfilename)
+    obj = speechtotext_model.SpeechToText()
+    texttoconvert = obj.convertSpeechToText(inputfilename)
     return texttoconvert
 
 

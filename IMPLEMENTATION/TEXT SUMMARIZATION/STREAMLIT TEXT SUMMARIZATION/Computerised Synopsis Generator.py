@@ -93,5 +93,8 @@ def main():
             # convertTextToSpeech(input_text)
             convertTextToSpeech(output_text)
 
+    if st.button('Show Raw Text'):
+        st.success(input_text)        
+
 if __name__ == '__main__':
     main()

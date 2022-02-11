@@ -1,0 +1,5554 @@
+Sweta Gupta
+ 
+Roll No: 61
+ 
+SUBJECT:
+-
+ 
+ADVANCE SECURITY LAB
+ 
+ 
+ 
+PRACTICAL NO 
+
+ 
+1 
+ 
+ 
+Aim: 
+Study of various Authentication and access control services such as Radius, 
+Tacacs and Tacacs+ 
+ 
+ 
+Theory: 
+ 
+NEED OF THE PROTOCOLS:
+ 
+If a single administrator wants to access 100 routers and local database of the device is 
+used for username and password (authentication) then the administrator have to make the 
+same user account different times. Also, if he wants to keep different usernam
+e and 
+password for the devices then he have to manually change the authentication for the 
+
+ 
+To ease this task to some extent, ACS (Access Control Server) is used. ACS provides a 
+centralised management system in which t
+he database of username and password are 
+kept. Also, authorization (means what the user is authorised to do) can be configured. But 
+for this we have to tell the router to refer to ACS for its decision on authentication and 
+authorization. 
+ 
+Two protocols are
+ 
+
+ 
+1.
+ 
+TACACS+ 
+ 
+2.
+ 
+R
+ADIUS
+ 
+RADIUS 
+
+ 
+ 
+RADIUS, stands for 
+Remote Authentication Dial In User 
+S
+ervice
+, is a security protocol 
+used in AAA framework to provide centralised authentication for users who want to gain 
+access to the network. 
+ 
+Features 
+
+ 
+Some of the features of RADIUS are: 
+ 
+1.
+ 
+Open standard protocol for AAA framework i.e it can used between any ven
+dor 
+device and Cisco ACS server. 
+ 
+2.
+ 
+It uses UDP as transmission protocol. 
+ 
+3.
+ 
+It uses UDP port number 1812 for authentication and authorisation and 1813 for 
+accounting. 
+ 
+4.
+ 
+If the device and ACS server is using RADIUS then only the passwords of AAA 
+packets are enc
+rypted. 
+ 
+5.
+ 
+No explicit command authorization can be implemented. 
+ 
+6.
+ 
+In RADIUS, authentication and authorization are coupled together. 
+ 
+ 
+ 
+ 
+ 
+Working 
+
+ 
+ 
+When other device want to access Network Access Server (NAS
+-
+client of RADIUS ), it 
+will send access
+-
+request message to ACS server for the matching the credentials. In 
+response to the access
+-
+request of the client, the ACS server will provide an 
+accessaccept
+ 
+message to the client if the credentials are valid and access
+-
+reject if the 
+credentials do not match. 
+ 
+ 
+ 
+ 
+Fig Mo:1 RADIUS
+ 
+Advantage 
+
+ 
+ 
+1.
+ 
+As it is open standard, therefore it can be used between the other 
+devices also. 
+ 
+Disadvantage 
+
+ 
+ 
+1
+ 
+As RADIUS uses UDP 
+.
+ 
+2
+ 
+No explicit command authorization can be implemented. 
+ 
+3
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tacas:  
+ 
+TACACS (Terminal Access Controller Access Control System) is an older authentication 
+protocol common to UNIX networks that allows a remote access server to forward a user's 
+log
+i
+n password to an authentication server to determine whether access can be allowed to 
+a given system. TACACS is an encryption protocol and therefore less secure than the later 
+TACACS+ and Remote Authentication Dial
+-
+In User Service protocols.  
+ 
+ 
+ 
+ 
+ 
+Tacacs+: 
+ 
+Remote Access Dial In User Service (RADIUS) and Terminal Access Controller Access
+-
+Control System Plus (TACACS+) are two common security protocols used to provide 
+centralized access into networks. RADIUS was designed to authenticate and log remote
+ 
+network users, while TACACS+ is most commonly used for administrator access to 
+network devices like routers and switches. Both protocols provide centralized 
+Authentication, Authorization, and Accounting (AAA) management for computers that 
+connect and use 
+a network service. 
+ 
+Authentication 
+-
+ 
+Who is allowed to gain access to the network? Traditionally authorized users 
+provide a username and password to verify their identity for both RADIUS and TACACS+
+ 
+Authorization 
+-
+ 
+What services can a user access once they
+ 
+are authenticated? It is unlikely 
+that you want your finance people to have access to the developer database. Visitors may 
+have access only to the Internet, while only IT staff can access the entire passwords 
+database. 
+ 
+ 
+ 
+Accounting 
+-
+ 
+What services did each user access and for how long? Accounting records 
+record the user's identification, network address, point of attachment and a unique 
+session identifier
+
+these statistics are tracked and added to 
+ 
+
+is useful when time on the system is billed to individuals or 
+departments
+.
+ 
+ 
+Features
+ 
+
+ 
+Some of the features of TACACS+ are:
+ 
+1.
+ 
+Cisco proprietary protocol for AAA framework i.e it can used between the Cisco device 
+and Cisco ACS server.
+ 
+2.
+ 
+It uses TCP as transmiss
+ion protocol.
+ 
+3.
+ 
+It uses TCP port number 49.
+ 
+4.
+ 
+If the device and ACS server is using TACACS+ then all the AAA packets exchanged 
+between them are encrypted.
+ 
+5.
+ 
+It separates AAA into distinct elements i.e
+ 
+authentication, authorisation and accounting 
+are separated.
+ 
+6.
+ 
+It provides greater granular control (than RADIUS) as the commands that are authorised 
+to be used by the user can be specified.
+ 
+7.
+ 
+It provides accounting support but less extensive than RADIUS.
+ 
+Work
+ing
+ 
+
+ 
+The client of the TACACS+ is called Network Access Device (Nad) or Network Access 
+Server (NAS).Network
+ 
+Access Device will contact the TACACS+ server to obtain a 
+username prompt through
+ 
+CONTINUE
+ 
+message . The user then enters a username and the 
+Network Access Device again contact the TACACS+ server to obtain a password prompt 
+(Continue message) displaying t
+he password prompt to the user, the user enters a 
+password, and the password is then sent to the TACACS+ server.
+ 
+ 
+The server can respond with one of the following reply messages:
+ 
+
+ 
+If the credentials entered are valid then the TACACS+ server will response wi
+th an 
+ACCEPT message.
+ 
+
+ 
+If the credentials entered are not valid then the TACACS+ server will response with an 
+REJECT message.
+ 
+
+ 
+If the link between the TACACS+ server and NAS or TACACS+ server is not working 
+properly then it will respond with an ERROR message
+.
+ 
+
+ 
+If TACACS+ authorization is required, the TACACS+ server is again contacted and it 
+returns an ACCEPT or REJECT authorization response. If the ACCEPT message is 
+returned, it contains attributes which are used to determine services that a user is 
+allowed t
+o do.
+ 
+For accounting, the client will send a REQUEST message to the TACACS+ server for which 
+the Server responds with RESPONSE message stating that record is received.
+ 
+Advantage
+ 
+
+ 
+1.
+ 
+Provides greater granular control than RADIUS.TACACS+ allows a 
+network 
+administrator to define what commands a user may run.
+ 
+2.
+ 
+All the AAA packets are encrypted rather just passwords (in case of Radius).
+ 
+3.
+ 
+TACACS+ uses TCP instead of UDP. TCP guarantees communication between the 
+client and server.
+ 
+Disadvantage
+ 
+
+ 
+1.
+ 
+As it is 
+Cisco proprietary, therefore it can be used between the Cisco devices only.
+ 
+2.
+ 
+Less extensive support for accounting than RADIUS.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Sweta Gupta
+ 
+Roll No: 61
+ 
+SUBJECT:
+-
+ 
+ADVANCE SECURITY LAB
+ 
+ 
+ 
+PRACTICAL NO 
+
+ 
+1 
+ 
+ 
+Aim: 
+Study of various Authentication and access control services such as Radius, 
+Tacacs and Tacacs+ 
+ 
+ 
+Theory: 
+ 
+NEED OF THE PROTOCOLS:
+ 
+If a single administrator wants to access 100 routers and local database of the device is 
+used for username and password (authentication) then the administrator have to make the 
+same user account different times. Also, if he wants to keep different usernam
+e and 
+password for the devices then he have to manually change the authentication for the 
+
+ 
+To ease this task to some extent, ACS (Access Control Server) is used. ACS provides a 
+centralised management system in which t
+he database of username and password are 
+kept. Also, authorization (means what the user is authorised to do) can be configured. But 
+for this we have to tell the router to refer to ACS for its decision on authentication and 
+authorization. 
+ 
+Two protocols are
+ 
+
+ 
+1.
+ 
+TACACS+ 
+ 
+2.
+ 
+R
+ADIUS
+ 
+RADIUS 
+
+ 
+ 
+RADIUS, stands for 
+Remote Authentication Dial In User 
+S
+ervice
+, is a security protocol 
+used in AAA framework to provide centralised authentication for users who want to gain 
+access to the network. 
+ 
+Features 
+
+ 
+Some of the features of RADIUS are: 
+ 
+1.
+ 
+Open standard protocol for AAA framework i.e it can used between any ven
+dor 
+device and Cisco ACS server. 
+ 
+2.
+ 
+It uses UDP as transmission protocol. 
+ 
+3.
+ 
+It uses UDP port number 1812 for authentication and authorisation and 1813 for 
+accounting. 
+ 
+4.
+ 
+If the device and ACS server is using RADIUS then only the passwords of AAA 
+packets are enc
+rypted. 
+ 
+5.
+ 
+No explicit command authorization can be implemented. 
+ 
+6.
+ 
+In RADIUS, authentication and authorization are coupled together. 
+ 
+ 
+ 
+ 
+ 
+Working 
+
+ 
+ 
+When other device want to access Network Access Server (NAS
+-
+client of RADIUS ), it 
+will send access
+-
+request message to ACS server for the matching the credentials. In 
+response to the access
+-
+request of the client, the ACS server will provide an 
+accessaccept
+ 
+message to the client if the credentials are valid and access
+-
+reject if the 
+credentials do not match. 
+ 
+ 
+ 
+ 
+Fig Mo:1 RADIUS
+ 
+Advantage 
+
+ 
+ 
+1.
+ 
+As it is open standard, therefore it can be used between the other 
+devices also. 
+ 
+Disadvantage 
+
+ 
+ 
+1
+ 
+As RADIUS uses UDP 
+.
+ 
+2
+ 
+No explicit command authorization can be implemented. 
+ 
+3
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tacas:  
+ 
+TACACS (Terminal Access Controller Access Control System) is an older authentication 
+protocol common to UNIX networks that allows a remote access server to forward a user's 
+log
+i
+n password to an authentication server to determine whether access can be allowed to 
+a given system. TACACS is an encryption protocol and therefore less secure than the later 
+TACACS+ and Remote Authentication Dial
+-
+In User Service protocols.  
+ 
+ 
+ 
+ 
+ 
+Tacacs+: 
+ 
+Remote Access Dial In User Service (RADIUS) and Terminal Access Controller Access
+-
+Control System Plus (TACACS+) are two common security protocols used to provide 
+centralized access into networks. RADIUS was designed to authenticate and log remote
+ 
+network users, while TACACS+ is most commonly used for administrator access to 
+network devices like routers and switches. Both protocols provide centralized 
+Authentication, Authorization, and Accounting (AAA) management for computers that 
+connect and use 
+a network service. 
+ 
+Authentication 
+-
+ 
+Who is allowed to gain access to the network? Traditionally authorized users 
+provide a username and password to verify their identity for both RADIUS and TACACS+
+ 
+Authorization 
+-
+ 
+What services can a user access once they
+ 
+are authenticated? It is unlikely 
+that you want your finance people to have access to the developer database. Visitors may 
+have access only to the Internet, while only IT staff can access the entire passwords 
+database. 
+ 
+ 
+ 
+Accounting 
+-
+ 
+What services did each user access and for how long? Accounting records 
+record the user's identification, network address, point of attachment and a unique 
+session identifier
+
+these statistics are tracked and added to 
+ 
+
+is useful when time on the system is billed to individuals or 
+departments
+.
+ 
+ 
+Features
+ 
+
+ 
+Some of the features of TACACS+ are:
+ 
+1.
+ 
+Cisco proprietary protocol for AAA framework i.e it can used between the Cisco device 
+and Cisco ACS server.
+ 
+2.
+ 
+It uses TCP as transmiss
+ion protocol.
+ 
+3.
+ 
+It uses TCP port number 49.
+ 
+4.
+ 
+If the device and ACS server is using TACACS+ then all the AAA packets exchanged 
+between them are encrypted.
+ 
+5.
+ 
+It separates AAA into distinct elements i.e
+ 
+authentication, authorisation and accounting 
+are separated.
+ 
+6.
+ 
+It provides greater granular control (than RADIUS) as the commands that are authorised 
+to be used by the user can be specified.
+ 
+7.
+ 
+It provides accounting support but less extensive than RADIUS.
+ 
+Work
+ing
+ 
+
+ 
+The client of the TACACS+ is called Network Access Device (Nad) or Network Access 
+Server (NAS).Network
+ 
+Access Device will contact the TACACS+ server to obtain a 
+username prompt through
+ 
+CONTINUE
+ 
+message . The user then enters a username and the 
+Network Access Device again contact the TACACS+ server to obtain a password prompt 
+(Continue message) displaying t
+he password prompt to the user, the user enters a 
+password, and the password is then sent to the TACACS+ server.
+ 
+ 
+The server can respond with one of the following reply messages:
+ 
+
+ 
+If the credentials entered are valid then the TACACS+ server will response wi
+th an 
+ACCEPT message.
+ 
+
+ 
+If the credentials entered are not valid then the TACACS+ server will response with an 
+REJECT message.
+ 
+
+ 
+If the link between the TACACS+ server and NAS or TACACS+ server is not working 
+properly then it will respond with an ERROR message
+.
+ 
+
+ 
+If TACACS+ authorization is required, the TACACS+ server is again contacted and it 
+returns an ACCEPT or REJECT authorization response. If the ACCEPT message is 
+returned, it contains attributes which are used to determine services that a user is 
+allowed t
+o do.
+ 
+For accounting, the client will send a REQUEST message to the TACACS+ server for which 
+the Server responds with RESPONSE message stating that record is received.
+ 
+Advantage
+ 
+
+ 
+1.
+ 
+Provides greater granular control than RADIUS.TACACS+ allows a 
+network 
+administrator to define what commands a user may run.
+ 
+2.
+ 
+All the AAA packets are encrypted rather just passwords (in case of Radius).
+ 
+3.
+ 
+TACACS+ uses TCP instead of UDP. TCP guarantees communication between the 
+client and server.
+ 
+Disadvantage
+ 
+
+ 
+1.
+ 
+As it is 
+Cisco proprietary, therefore it can be used between the Cisco devices only.
+ 
+2.
+ 
+Less extensive support for accounting than RADIUS.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Sweta Gupta
+ 
+Roll No: 61
+ 
+SUBJECT:
+-
+ 
+ADVANCE SECURITY LAB
+ 
+ 
+ 
+PRACTICAL NO 
+
+ 
+1 
+ 
+ 
+Aim: 
+Study of various Authentication and access control services such as Radius, 
+Tacacs and Tacacs+ 
+ 
+ 
+Theory: 
+ 
+NEED OF THE PROTOCOLS:
+ 
+If a single administrator wants to access 100 routers and local database of the device is 
+used for username and password (authentication) then the administrator have to make the 
+same user account different times. Also, if he wants to keep different usernam
+e and 
+password for the devices then he have to manually change the authentication for the 
+
+ 
+To ease this task to some extent, ACS (Access Control Server) is used. ACS provides a 
+centralised management system in which t
+he database of username and password are 
+kept. Also, authorization (means what the user is authorised to do) can be configured. But 
+for this we have to tell the router to refer to ACS for its decision on authentication and 
+authorization. 
+ 
+Two protocols are
+ 
+
+ 
+1.
+ 
+TACACS+ 
+ 
+2.
+ 
+R
+ADIUS
+ 
+RADIUS 
+
+ 
+ 
+RADIUS, stands for 
+Remote Authentication Dial In User 
+S
+ervice
+, is a security protocol 
+used in AAA framework to provide centralised authentication for users who want to gain 
+access to the network. 
+ 
+Features 
+
+ 
+Some of the features of RADIUS are: 
+ 
+1.
+ 
+Open standard protocol for AAA framework i.e it can used between any ven
+dor 
+device and Cisco ACS server. 
+ 
+2.
+ 
+It uses UDP as transmission protocol. 
+ 
+3.
+ 
+It uses UDP port number 1812 for authentication and authorisation and 1813 for 
+accounting. 
+ 
+4.
+ 
+If the device and ACS server is using RADIUS then only the passwords of AAA 
+packets are enc
+rypted. 
+ 
+5.
+ 
+No explicit command authorization can be implemented. 
+ 
+6.
+ 
+In RADIUS, authentication and authorization are coupled together. 
+ 
+ 
+ 
+ 
+ 
+Working 
+
+ 
+ 
+When other device want to access Network Access Server (NAS
+-
+client of RADIUS ), it 
+will send access
+-
+request message to ACS server for the matching the credentials. In 
+response to the access
+-
+request of the client, the ACS server will provide an 
+accessaccept
+ 
+message to the client if the credentials are valid and access
+-
+reject if the 
+credentials do not match. 
+ 
+ 
+ 
+ 
+Fig Mo:1 RADIUS
+ 
+Advantage 
+
+ 
+ 
+1.
+ 
+As it is open standard, therefore it can be used between the other 
+devices also. 
+ 
+Disadvantage 
+
+ 
+ 
+1
+ 
+As RADIUS uses UDP 
+.
+ 
+2
+ 
+No explicit command authorization can be implemented. 
+ 
+3
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tacas:  
+ 
+TACACS (Terminal Access Controller Access Control System) is an older authentication 
+protocol common to UNIX networks that allows a remote access server to forward a user's 
+log
+i
+n password to an authentication server to determine whether access can be allowed to 
+a given system. TACACS is an encryption protocol and therefore less secure than the later 
+TACACS+ and Remote Authentication Dial
+-
+In User Service protocols.  
+ 
+ 
+ 
+ 
+ 
+Tacacs+: 
+ 
+Remote Access Dial In User Service (RADIUS) and Terminal Access Controller Access
+-
+Control System Plus (TACACS+) are two common security protocols used to provide 
+centralized access into networks. RADIUS was designed to authenticate and log remote
+ 
+network users, while TACACS+ is most commonly used for administrator access to 
+network devices like routers and switches. Both protocols provide centralized 
+Authentication, Authorization, and Accounting (AAA) management for computers that 
+connect and use 
+a network service. 
+ 
+Authentication 
+-
+ 
+Who is allowed to gain access to the network? Traditionally authorized users 
+provide a username and password to verify their identity for both RADIUS and TACACS+
+ 
+Authorization 
+-
+ 
+What services can a user access once they
+ 
+are authenticated? It is unlikely 
+that you want your finance people to have access to the developer database. Visitors may 
+have access only to the Internet, while only IT staff can access the entire passwords 
+database. 
+ 
+ 
+ 
+Accounting 
+-
+ 
+What services did each user access and for how long? Accounting records 
+record the user's identification, network address, point of attachment and a unique 
+session identifier
+
+these statistics are tracked and added to 
+ 
+
+is useful when time on the system is billed to individuals or 
+departments
+.
+ 
+ 
+Features
+ 
+
+ 
+Some of the features of TACACS+ are:
+ 
+1.
+ 
+Cisco proprietary protocol for AAA framework i.e it can used between the Cisco device 
+and Cisco ACS server.
+ 
+2.
+ 
+It uses TCP as transmiss
+ion protocol.
+ 
+3.
+ 
+It uses TCP port number 49.
+ 
+4.
+ 
+If the device and ACS server is using TACACS+ then all the AAA packets exchanged 
+between them are encrypted.
+ 
+5.
+ 
+It separates AAA into distinct elements i.e
+ 
+authentication, authorisation and accounting 
+are separated.
+ 
+6.
+ 
+It provides greater granular control (than RADIUS) as the commands that are authorised 
+to be used by the user can be specified.
+ 
+7.
+ 
+It provides accounting support but less extensive than RADIUS.
+ 
+Work
+ing
+ 
+
+ 
+The client of the TACACS+ is called Network Access Device (Nad) or Network Access 
+Server (NAS).Network
+ 
+Access Device will contact the TACACS+ server to obtain a 
+username prompt through
+ 
+CONTINUE
+ 
+message . The user then enters a username and the 
+Network Access Device again contact the TACACS+ server to obtain a password prompt 
+(Continue message) displaying t
+he password prompt to the user, the user enters a 
+password, and the password is then sent to the TACACS+ server.
+ 
+ 
+The server can respond with one of the following reply messages:
+ 
+
+ 
+If the credentials entered are valid then the TACACS+ server will response wi
+th an 
+ACCEPT message.
+ 
+
+ 
+If the credentials entered are not valid then the TACACS+ server will response with an 
+REJECT message.
+ 
+
+ 
+If the link between the TACACS+ server and NAS or TACACS+ server is not working 
+properly then it will respond with an ERROR message
+.
+ 
+
+ 
+If TACACS+ authorization is required, the TACACS+ server is again contacted and it 
+returns an ACCEPT or REJECT authorization response. If the ACCEPT message is 
+returned, it contains attributes which are used to determine services that a user is 
+allowed t
+o do.
+ 
+For accounting, the client will send a REQUEST message to the TACACS+ server for which 
+the Server responds with RESPONSE message stating that record is received.
+ 
+Advantage
+ 
+
+ 
+1.
+ 
+Provides greater granular control than RADIUS.TACACS+ allows a 
+network 
+administrator to define what commands a user may run.
+ 
+2.
+ 
+All the AAA packets are encrypted rather just passwords (in case of Radius).
+ 
+3.
+ 
+TACACS+ uses TCP instead of UDP. TCP guarantees communication between the 
+client and server.
+ 
+Disadvantage
+ 
+
+ 
+1.
+ 
+As it is 
+Cisco proprietary, therefore it can be used between the Cisco devices only.
+ 
+2.
+ 
+Less extensive support for accounting than RADIUS.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Sweta Gupta
+ 
+Roll No: 61
+ 
+SUBJECT:
+-
+ 
+ADVANCE SECURITY LAB
+ 
+ 
+ 
+PRACTICAL NO 
+
+ 
+1 
+ 
+ 
+Aim: 
+Study of various Authentication and access control services such as Radius, 
+Tacacs and Tacacs+ 
+ 
+ 
+Theory: 
+ 
+NEED OF THE PROTOCOLS:
+ 
+If a single administrator wants to access 100 routers and local database of the device is 
+used for username and password (authentication) then the administrator have to make the 
+same user account different times. Also, if he wants to keep different usernam
+e and 
+password for the devices then he have to manually change the authentication for the 
+
+ 
+To ease this task to some extent, ACS (Access Control Server) is used. ACS provides a 
+centralised management system in which t
+he database of username and password are 
+kept. Also, authorization (means what the user is authorised to do) can be configured. But 
+for this we have to tell the router to refer to ACS for its decision on authentication and 
+authorization. 
+ 
+Two protocols are
+ 
+
+ 
+1.
+ 
+TACACS+ 
+ 
+2.
+ 
+R
+ADIUS
+ 
+RADIUS 
+
+ 
+ 
+RADIUS, stands for 
+Remote Authentication Dial In User 
+S
+ervice
+, is a security protocol 
+used in AAA framework to provide centralised authentication for users who want to gain 
+access to the network. 
+ 
+Features 
+
+ 
+Some of the features of RADIUS are: 
+ 
+1.
+ 
+Open standard protocol for AAA framework i.e it can used between any ven
+dor 
+device and Cisco ACS server. 
+ 
+2.
+ 
+It uses UDP as transmission protocol. 
+ 
+3.
+ 
+It uses UDP port number 1812 for authentication and authorisation and 1813 for 
+accounting. 
+ 
+4.
+ 
+If the device and ACS server is using RADIUS then only the passwords of AAA 
+packets are enc
+rypted. 
+ 
+5.
+ 
+No explicit command authorization can be implemented. 
+ 
+6.
+ 
+In RADIUS, authentication and authorization are coupled together. 
+ 
+ 
+ 
+ 
+ 
+Working 
+
+ 
+ 
+When other device want to access Network Access Server (NAS
+-
+client of RADIUS ), it 
+will send access
+-
+request message to ACS server for the matching the credentials. In 
+response to the access
+-
+request of the client, the ACS server will provide an 
+accessaccept
+ 
+message to the client if the credentials are valid and access
+-
+reject if the 
+credentials do not match. 
+ 
+ 
+ 
+ 
+Fig Mo:1 RADIUS
+ 
+Advantage 
+
+ 
+ 
+1.
+ 
+As it is open standard, therefore it can be used between the other 
+devices also. 
+ 
+Disadvantage 
+
+ 
+ 
+1
+ 
+As RADIUS uses UDP 
+.
+ 
+2
+ 
+No explicit command authorization can be implemented. 
+ 
+3
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tacas:  
+ 
+TACACS (Terminal Access Controller Access Control System) is an older authentication 
+protocol common to UNIX networks that allows a remote access server to forward a user's 
+log
+i
+n password to an authentication server to determine whether access can be allowed to 
+a given system. TACACS is an encryption protocol and therefore less secure than the later 
+TACACS+ and Remote Authentication Dial
+-
+In User Service protocols.  
+ 
+ 
+ 
+ 
+ 
+Tacacs+: 
+ 
+Remote Access Dial In User Service (RADIUS) and Terminal Access Controller Access
+-
+Control System Plus (TACACS+) are two common security protocols used to provide 
+centralized access into networks. RADIUS was designed to authenticate and log remote
+ 
+network users, while TACACS+ is most commonly used for administrator access to 
+network devices like routers and switches. Both protocols provide centralized 
+Authentication, Authorization, and Accounting (AAA) management for computers that 
+connect and use 
+a network service. 
+ 
+Authentication 
+-
+ 
+Who is allowed to gain access to the network? Traditionally authorized users 
+provide a username and password to verify their identity for both RADIUS and TACACS+
+ 
+Authorization 
+-
+ 
+What services can a user access once they
+ 
+are authenticated? It is unlikely 
+that you want your finance people to have access to the developer database. Visitors may 
+have access only to the Internet, while only IT staff can access the entire passwords 
+database. 
+ 
+ 
+ 
+Accounting 
+-
+ 
+What services did each user access and for how long? Accounting records 
+record the user's identification, network address, point of attachment and a unique 
+session identifier
+
+these statistics are tracked and added to 
+ 
+
+is useful when time on the system is billed to individuals or 
+departments
+.
+ 
+ 
+Features
+ 
+
+ 
+Some of the features of TACACS+ are:
+ 
+1.
+ 
+Cisco proprietary protocol for AAA framework i.e it can used between the Cisco device 
+and Cisco ACS server.
+ 
+2.
+ 
+It uses TCP as transmiss
+ion protocol.
+ 
+3.
+ 
+It uses TCP port number 49.
+ 
+4.
+ 
+If the device and ACS server is using TACACS+ then all the AAA packets exchanged 
+between them are encrypted.
+ 
+5.
+ 
+It separates AAA into distinct elements i.e
+ 
+authentication, authorisation and accounting 
+are separated.
+ 
+6.
+ 
+It provides greater granular control (than RADIUS) as the commands that are authorised 
+to be used by the user can be specified.
+ 
+7.
+ 
+It provides accounting support but less extensive than RADIUS.
+ 
+Work
+ing
+ 
+
+ 
+The client of the TACACS+ is called Network Access Device (Nad) or Network Access 
+Server (NAS).Network
+ 
+Access Device will contact the TACACS+ server to obtain a 
+username prompt through
+ 
+CONTINUE
+ 
+message . The user then enters a username and the 
+Network Access Device again contact the TACACS+ server to obtain a password prompt 
+(Continue message) displaying t
+he password prompt to the user, the user enters a 
+password, and the password is then sent to the TACACS+ server.
+ 
+ 
+The server can respond with one of the following reply messages:
+ 
+
+ 
+If the credentials entered are valid then the TACACS+ server will response wi
+th an 
+ACCEPT message.
+ 
+
+ 
+If the credentials entered are not valid then the TACACS+ server will response with an 
+REJECT message.
+ 
+
+ 
+If the link between the TACACS+ server and NAS or TACACS+ server is not working 
+properly then it will respond with an ERROR message
+.
+ 
+
+ 
+If TACACS+ authorization is required, the TACACS+ server is again contacted and it 
+returns an ACCEPT or REJECT authorization response. If the ACCEPT message is 
+returned, it contains attributes which are used to determine services that a user is 
+allowed t
+o do.
+ 
+For accounting, the client will send a REQUEST message to the TACACS+ server for which 
+the Server responds with RESPONSE message stating that record is received.
+ 
+Advantage
+ 
+
+ 
+1.
+ 
+Provides greater granular control than RADIUS.TACACS+ allows a 
+network 
+administrator to define what commands a user may run.
+ 
+2.
+ 
+All the AAA packets are encrypted rather just passwords (in case of Radius).
+ 
+3.
+ 
+TACACS+ uses TCP instead of UDP. TCP guarantees communication between the 
+client and server.
+ 
+Disadvantage
+ 
+
+ 
+1.
+ 
+As it is 
+Cisco proprietary, therefore it can be used between the Cisco devices only.
+ 
+2.
+ 
+Less extensive support for accounting than RADIUS.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Sweta Gupta
+ 
+Roll No: 61
+ 
+SUBJECT:
+-
+ 
+ADVANCE SECURITY LAB
+ 
+ 
+ 
+PRACTICAL NO 
+
+ 
+1 
+ 
+ 
+Aim: 
+Study of various Authentication and access control services such as Radius, 
+Tacacs and Tacacs+ 
+ 
+ 
+Theory: 
+ 
+NEED OF THE PROTOCOLS:
+ 
+If a single administrator wants to access 100 routers and local database of the device is 
+used for username and password (authentication) then the administrator have to make the 
+same user account different times. Also, if he wants to keep different usernam
+e and 
+password for the devices then he have to manually change the authentication for the 
+
+ 
+To ease this task to some extent, ACS (Access Control Server) is used. ACS provides a 
+centralised management system in which t
+he database of username and password are 
+kept. Also, authorization (means what the user is authorised to do) can be configured. But 
+for this we have to tell the router to refer to ACS for its decision on authentication and 
+authorization. 
+ 
+Two protocols are
+ 
+
+ 
+1.
+ 
+TACACS+ 
+ 
+2.
+ 
+R
+ADIUS
+ 
+RADIUS 
+
+ 
+ 
+RADIUS, stands for 
+Remote Authentication Dial In User 
+S
+ervice
+, is a security protocol 
+used in AAA framework to provide centralised authentication for users who want to gain 
+access to the network. 
+ 
+Features 
+
+ 
+Some of the features of RADIUS are: 
+ 
+1.
+ 
+Open standard protocol for AAA framework i.e it can used between any ven
+dor 
+device and Cisco ACS server. 
+ 
+2.
+ 
+It uses UDP as transmission protocol. 
+ 
+3.
+ 
+It uses UDP port number 1812 for authentication and authorisation and 1813 for 
+accounting. 
+ 
+4.
+ 
+If the device and ACS server is using RADIUS then only the passwords of AAA 
+packets are enc
+rypted. 
+ 
+5.
+ 
+No explicit command authorization can be implemented. 
+ 
+6.
+ 
+In RADIUS, authentication and authorization are coupled together. 
+ 
+ 
+ 
+ 
+ 
+Working 
+
+ 
+ 
+When other device want to access Network Access Server (NAS
+-
+client of RADIUS ), it 
+will send access
+-
+request message to ACS server for the matching the credentials. In 
+response to the access
+-
+request of the client, the ACS server will provide an 
+accessaccept
+ 
+message to the client if the credentials are valid and access
+-
+reject if the 
+credentials do not match. 
+ 
+ 
+ 
+ 
+Fig Mo:1 RADIUS
+ 
+Advantage 
+
+ 
+ 
+1.
+ 
+As it is open standard, therefore it can be used between the other 
+devices also. 
+ 
+Disadvantage 
+
+ 
+ 
+1
+ 
+As RADIUS uses UDP 
+.
+ 
+2
+ 
+No explicit command authorization can be implemented. 
+ 
+3
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tacas:  
+ 
+TACACS (Terminal Access Controller Access Control System) is an older authentication 
+protocol common to UNIX networks that allows a remote access server to forward a user's 
+log
+i
+n password to an authentication server to determine whether access can be allowed to 
+a given system. TACACS is an encryption protocol and therefore less secure than the later 
+TACACS+ and Remote Authentication Dial
+-
+In User Service protocols.  
+ 
+ 
+ 
+ 
+ 
+Tacacs+: 
+ 
+Remote Access Dial In User Service (RADIUS) and Terminal Access Controller Access
+-
+Control System Plus (TACACS+) are two common security protocols used to provide 
+centralized access into networks. RADIUS was designed to authenticate and log remote
+ 
+network users, while TACACS+ is most commonly used for administrator access to 
+network devices like routers and switches. Both protocols provide centralized 
+Authentication, Authorization, and Accounting (AAA) management for computers that 
+connect and use 
+a network service. 
+ 
+Authentication 
+-
+ 
+Who is allowed to gain access to the network? Traditionally authorized users 
+provide a username and password to verify their identity for both RADIUS and TACACS+
+ 
+Authorization 
+-
+ 
+What services can a user access once they
+ 
+are authenticated? It is unlikely 
+that you want your finance people to have access to the developer database. Visitors may 
+have access only to the Internet, while only IT staff can access the entire passwords 
+database. 
+ 
+ 
+ 
+Accounting 
+-
+ 
+What services did each user access and for how long? Accounting records 
+record the user's identification, network address, point of attachment and a unique 
+session identifier
+
+these statistics are tracked and added to 
+ 
+
+is useful when time on the system is billed to individuals or 
+departments
+.
+ 
+ 
+Features
+ 
+
+ 
+Some of the features of TACACS+ are:
+ 
+1.
+ 
+Cisco proprietary protocol for AAA framework i.e it can used between the Cisco device 
+and Cisco ACS server.
+ 
+2.
+ 
+It uses TCP as transmiss
+ion protocol.
+ 
+3.
+ 
+It uses TCP port number 49.
+ 
+4.
+ 
+If the device and ACS server is using TACACS+ then all the AAA packets exchanged 
+between them are encrypted.
+ 
+5.
+ 
+It separates AAA into distinct elements i.e
+ 
+authentication, authorisation and accounting 
+are separated.
+ 
+6.
+ 
+It provides greater granular control (than RADIUS) as the commands that are authorised 
+to be used by the user can be specified.
+ 
+7.
+ 
+It provides accounting support but less extensive than RADIUS.
+ 
+Work
+ing
+ 
+
+ 
+The client of the TACACS+ is called Network Access Device (Nad) or Network Access 
+Server (NAS).Network
+ 
+Access Device will contact the TACACS+ server to obtain a 
+username prompt through
+ 
+CONTINUE
+ 
+message . The user then enters a username and the 
+Network Access Device again contact the TACACS+ server to obtain a password prompt 
+(Continue message) displaying t
+he password prompt to the user, the user enters a 
+password, and the password is then sent to the TACACS+ server.
+ 
+ 
+The server can respond with one of the following reply messages:
+ 
+
+ 
+If the credentials entered are valid then the TACACS+ server will response wi
+th an 
+ACCEPT message.
+ 
+
+ 
+If the credentials entered are not valid then the TACACS+ server will response with an 
+REJECT message.
+ 
+
+ 
+If the link between the TACACS+ server and NAS or TACACS+ server is not working 
+properly then it will respond with an ERROR message
+.
+ 
+
+ 
+If TACACS+ authorization is required, the TACACS+ server is again contacted and it 
+returns an ACCEPT or REJECT authorization response. If the ACCEPT message is 
+returned, it contains attributes which are used to determine services that a user is 
+allowed t
+o do.
+ 
+For accounting, the client will send a REQUEST message to the TACACS+ server for which 
+the Server responds with RESPONSE message stating that record is received.
+ 
+Advantage
+ 
+
+ 
+1.
+ 
+Provides greater granular control than RADIUS.TACACS+ allows a 
+network 
+administrator to define what commands a user may run.
+ 
+2.
+ 
+All the AAA packets are encrypted rather just passwords (in case of Radius).
+ 
+3.
+ 
+TACACS+ uses TCP instead of UDP. TCP guarantees communication between the 
+client and server.
+ 
+Disadvantage
+ 
+
+ 
+1.
+ 
+As it is 
+Cisco proprietary, therefore it can be used between the Cisco devices only.
+ 
+2.
+ 
+Less extensive support for accounting than RADIUS.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Sweta Gupta
+ 
+Roll No: 61
+ 
+SUBJECT:
+-
+ 
+ADVANCE SECURITY LAB
+ 
+ 
+ 
+PRACTICAL NO 
+
+ 
+1 
+ 
+ 
+Aim: 
+Study of various Authentication and access control services such as Radius, 
+Tacacs and Tacacs+ 
+ 
+ 
+Theory: 
+ 
+NEED OF THE PROTOCOLS:
+ 
+If a single administrator wants to access 100 routers and local database of the device is 
+used for username and password (authentication) then the administrator have to make the 
+same user account different times. Also, if he wants to keep different usernam
+e and 
+password for the devices then he have to manually change the authentication for the 
+
+ 
+To ease this task to some extent, ACS (Access Control Server) is used. ACS provides a 
+centralised management system in which t
+he database of username and password are 
+kept. Also, authorization (means what the user is authorised to do) can be configured. But 
+for this we have to tell the router to refer to ACS for its decision on authentication and 
+authorization. 
+ 
+Two protocols are
+ 
+
+ 
+1.
+ 
+TACACS+ 
+ 
+2.
+ 
+R
+ADIUS
+ 
+RADIUS 
+
+ 
+ 
+RADIUS, stands for 
+Remote Authentication Dial In User 
+S
+ervice
+, is a security protocol 
+used in AAA framework to provide centralised authentication for users who want to gain 
+access to the network. 
+ 
+Features 
+
+ 
+Some of the features of RADIUS are: 
+ 
+1.
+ 
+Open standard protocol for AAA framework i.e it can used between any ven
+dor 
+device and Cisco ACS server. 
+ 
+2.
+ 
+It uses UDP as transmission protocol. 
+ 
+3.
+ 
+It uses UDP port number 1812 for authentication and authorisation and 1813 for 
+accounting. 
+ 
+4.
+ 
+If the device and ACS server is using RADIUS then only the passwords of AAA 
+packets are enc
+rypted. 
+ 
+5.
+ 
+No explicit command authorization can be implemented. 
+ 
+6.
+ 
+In RADIUS, authentication and authorization are coupled together. 
+ 
+ 
+ 
+ 
+ 
+Working 
+
+ 
+ 
+When other device want to access Network Access Server (NAS
+-
+client of RADIUS ), it 
+will send access
+-
+request message to ACS server for the matching the credentials. In 
+response to the access
+-
+request of the client, the ACS server will provide an 
+accessaccept
+ 
+message to the client if the credentials are valid and access
+-
+reject if the 
+credentials do not match. 
+ 
+ 
+ 
+ 
+Fig Mo:1 RADIUS
+ 
+Advantage 
+
+ 
+ 
+1.
+ 
+As it is open standard, therefore it can be used between the other 
+devices also. 
+ 
+Disadvantage 
+
+ 
+ 
+1
+ 
+As RADIUS uses UDP 
+.
+ 
+2
+ 
+No explicit command authorization can be implemented. 
+ 
+3
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tacas:  
+ 
+TACACS (Terminal Access Controller Access Control System) is an older authentication 
+protocol common to UNIX networks that allows a remote access server to forward a user's 
+log
+i
+n password to an authentication server to determine whether access can be allowed to 
+a given system. TACACS is an encryption protocol and therefore less secure than the later 
+TACACS+ and Remote Authentication Dial
+-
+In User Service protocols.  
+ 
+ 
+ 
+ 
+ 
+Tacacs+: 
+ 
+Remote Access Dial In User Service (RADIUS) and Terminal Access Controller Access
+-
+Control System Plus (TACACS+) are two common security protocols used to provide 
+centralized access into networks. RADIUS was designed to authenticate and log remote
+ 
+network users, while TACACS+ is most commonly used for administrator access to 
+network devices like routers and switches. Both protocols provide centralized 
+Authentication, Authorization, and Accounting (AAA) management for computers that 
+connect and use 
+a network service. 
+ 
+Authentication 
+-
+ 
+Who is allowed to gain access to the network? Traditionally authorized users 
+provide a username and password to verify their identity for both RADIUS and TACACS+
+ 
+Authorization 
+-
+ 
+What services can a user access once they
+ 
+are authenticated? It is unlikely 
+that you want your finance people to have access to the developer database. Visitors may 
+have access only to the Internet, while only IT staff can access the entire passwords 
+database. 
+ 
+ 
+ 
+Accounting 
+-
+ 
+What services did each user access and for how long? Accounting records 
+record the user's identification, network address, point of attachment and a unique 
+session identifier
+
+these statistics are tracked and added to 
+ 
+
+is useful when time on the system is billed to individuals or 
+departments
+.
+ 
+ 
+Features
+ 
+
+ 
+Some of the features of TACACS+ are:
+ 
+1.
+ 
+Cisco proprietary protocol for AAA framework i.e it can used between the Cisco device 
+and Cisco ACS server.
+ 
+2.
+ 
+It uses TCP as transmiss
+ion protocol.
+ 
+3.
+ 
+It uses TCP port number 49.
+ 
+4.
+ 
+If the device and ACS server is using TACACS+ then all the AAA packets exchanged 
+between them are encrypted.
+ 
+5.
+ 
+It separates AAA into distinct elements i.e
+ 
+authentication, authorisation and accounting 
+are separated.
+ 
+6.
+ 
+It provides greater granular control (than RADIUS) as the commands that are authorised 
+to be used by the user can be specified.
+ 
+7.
+ 
+It provides accounting support but less extensive than RADIUS.
+ 
+Work
+ing
+ 
+
+ 
+The client of the TACACS+ is called Network Access Device (Nad) or Network Access 
+Server (NAS).Network
+ 
+Access Device will contact the TACACS+ server to obtain a 
+username prompt through
+ 
+CONTINUE
+ 
+message . The user then enters a username and the 
+Network Access Device again contact the TACACS+ server to obtain a password prompt 
+(Continue message) displaying t
+he password prompt to the user, the user enters a 
+password, and the password is then sent to the TACACS+ server.
+ 
+ 
+The server can respond with one of the following reply messages:
+ 
+
+ 
+If the credentials entered are valid then the TACACS+ server will response wi
+th an 
+ACCEPT message.
+ 
+
+ 
+If the credentials entered are not valid then the TACACS+ server will response with an 
+REJECT message.
+ 
+
+ 
+If the link between the TACACS+ server and NAS or TACACS+ server is not working 
+properly then it will respond with an ERROR message
+.
+ 
+
+ 
+If TACACS+ authorization is required, the TACACS+ server is again contacted and it 
+returns an ACCEPT or REJECT authorization response. If the ACCEPT message is 
+returned, it contains attributes which are used to determine services that a user is 
+allowed t
+o do.
+ 
+For accounting, the client will send a REQUEST message to the TACACS+ server for which 
+the Server responds with RESPONSE message stating that record is received.
+ 
+Advantage
+ 
+
+ 
+1.
+ 
+Provides greater granular control than RADIUS.TACACS+ allows a 
+network 
+administrator to define what commands a user may run.
+ 
+2.
+ 
+All the AAA packets are encrypted rather just passwords (in case of Radius).
+ 
+3.
+ 
+TACACS+ uses TCP instead of UDP. TCP guarantees communication between the 
+client and server.
+ 
+Disadvantage
+ 
+
+ 
+1.
+ 
+As it is 
+Cisco proprietary, therefore it can be used between the Cisco devices only.
+ 
+2.
+ 
+Less extensive support for accounting than RADIUS.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Sweta Gupta
+ 
+Roll No: 61
+ 
+SUBJECT:
+-
+ 
+ADVANCE SECURITY LAB
+ 
+ 
+ 
+PRACTICAL NO 
+
+ 
+1 
+ 
+ 
+Aim: 
+Study of various Authentication and access control services such as Radius, 
+Tacacs and Tacacs+ 
+ 
+ 
+Theory: 
+ 
+NEED OF THE PROTOCOLS:
+ 
+If a single administrator wants to access 100 routers and local database of the device is 
+used for username and password (authentication) then the administrator have to make the 
+same user account different times. Also, if he wants to keep different usernam
+e and 
+password for the devices then he have to manually change the authentication for the 
+
+ 
+To ease this task to some extent, ACS (Access Control Server) is used. ACS provides a 
+centralised management system in which t
+he database of username and password are 
+kept. Also, authorization (means what the user is authorised to do) can be configured. But 
+for this we have to tell the router to refer to ACS for its decision on authentication and 
+authorization. 
+ 
+Two protocols are
+ 
+
+ 
+1.
+ 
+TACACS+ 
+ 
+2.
+ 
+R
+ADIUS
+ 
+RADIUS 
+
+ 
+ 
+RADIUS, stands for 
+Remote Authentication Dial In User 
+S
+ervice
+, is a security protocol 
+used in AAA framework to provide centralised authentication for users who want to gain 
+access to the network. 
+ 
+Features 
+
+ 
+Some of the features of RADIUS are: 
+ 
+1.
+ 
+Open standard protocol for AAA framework i.e it can used between any ven
+dor 
+device and Cisco ACS server. 
+ 
+2.
+ 
+It uses UDP as transmission protocol. 
+ 
+3.
+ 
+It uses UDP port number 1812 for authentication and authorisation and 1813 for 
+accounting. 
+ 
+4.
+ 
+If the device and ACS server is using RADIUS then only the passwords of AAA 
+packets are enc
+rypted. 
+ 
+5.
+ 
+No explicit command authorization can be implemented. 
+ 
+6.
+ 
+In RADIUS, authentication and authorization are coupled together. 
+ 
+ 
+ 
+ 
+ 
+Working 
+
+ 
+ 
+When other device want to access Network Access Server (NAS
+-
+client of RADIUS ), it 
+will send access
+-
+request message to ACS server for the matching the credentials. In 
+response to the access
+-
+request of the client, the ACS server will provide an 
+accessaccept
+ 
+message to the client if the credentials are valid and access
+-
+reject if the 
+credentials do not match. 
+ 
+ 
+ 
+ 
+Fig Mo:1 RADIUS
+ 
+Advantage 
+
+ 
+ 
+1.
+ 
+As it is open standard, therefore it can be used between the other 
+devices also. 
+ 
+Disadvantage 
+
+ 
+ 
+1
+ 
+As RADIUS uses UDP 
+.
+ 
+2
+ 
+No explicit command authorization can be implemented. 
+ 
+3
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tacas:  
+ 
+TACACS (Terminal Access Controller Access Control System) is an older authentication 
+protocol common to UNIX networks that allows a remote access server to forward a user's 
+log
+i
+n password to an authentication server to determine whether access can be allowed to 
+a given system. TACACS is an encryption protocol and therefore less secure than the later 
+TACACS+ and Remote Authentication Dial
+-
+In User Service protocols.  
+ 
+ 
+ 
+ 
+ 
+Tacacs+: 
+ 
+Remote Access Dial In User Service (RADIUS) and Terminal Access Controller Access
+-
+Control System Plus (TACACS+) are two common security protocols used to provide 
+centralized access into networks. RADIUS was designed to authenticate and log remote
+ 
+network users, while TACACS+ is most commonly used for administrator access to 
+network devices like routers and switches. Both protocols provide centralized 
+Authentication, Authorization, and Accounting (AAA) management for computers that 
+connect and use 
+a network service. 
+ 
+Authentication 
+-
+ 
+Who is allowed to gain access to the network? Traditionally authorized users 
+provide a username and password to verify their identity for both RADIUS and TACACS+
+ 
+Authorization 
+-
+ 
+What services can a user access once they
+ 
+are authenticated? It is unlikely 
+that you want your finance people to have access to the developer database. Visitors may 
+have access only to the Internet, while only IT staff can access the entire passwords 
+database. 
+ 
+ 
+ 
+Accounting 
+-
+ 
+What services did each user access and for how long? Accounting records 
+record the user's identification, network address, point of attachment and a unique 
+session identifier
+
+these statistics are tracked and added to 
+ 
+
+is useful when time on the system is billed to individuals or 
+departments
+.
+ 
+ 
+Features
+ 
+
+ 
+Some of the features of TACACS+ are:
+ 
+1.
+ 
+Cisco proprietary protocol for AAA framework i.e it can used between the Cisco device 
+and Cisco ACS server.
+ 
+2.
+ 
+It uses TCP as transmiss
+ion protocol.
+ 
+3.
+ 
+It uses TCP port number 49.
+ 
+4.
+ 
+If the device and ACS server is using TACACS+ then all the AAA packets exchanged 
+between them are encrypted.
+ 
+5.
+ 
+It separates AAA into distinct elements i.e
+ 
+authentication, authorisation and accounting 
+are separated.
+ 
+6.
+ 
+It provides greater granular control (than RADIUS) as the commands that are authorised 
+to be used by the user can be specified.
+ 
+7.
+ 
+It provides accounting support but less extensive than RADIUS.
+ 
+Work
+ing
+ 
+
+ 
+The client of the TACACS+ is called Network Access Device (Nad) or Network Access 
+Server (NAS).Network
+ 
+Access Device will contact the TACACS+ server to obtain a 
+username prompt through
+ 
+CONTINUE
+ 
+message . The user then enters a username and the 
+Network Access Device again contact the TACACS+ server to obtain a password prompt 
+(Continue message) displaying t
+he password prompt to the user, the user enters a 
+password, and the password is then sent to the TACACS+ server.
+ 
+ 
+The server can respond with one of the following reply messages:
+ 
+
+ 
+If the credentials entered are valid then the TACACS+ server will response wi
+th an 
+ACCEPT message.
+ 
+
+ 
+If the credentials entered are not valid then the TACACS+ server will response with an 
+REJECT message.
+ 
+
+ 
+If the link between the TACACS+ server and NAS or TACACS+ server is not working 
+properly then it will respond with an ERROR message
+.
+ 
+
+ 
+If TACACS+ authorization is required, the TACACS+ server is again contacted and it 
+returns an ACCEPT or REJECT authorization response. If the ACCEPT message is 
+returned, it contains attributes which are used to determine services that a user is 
+allowed t
+o do.
+ 
+For accounting, the client will send a REQUEST message to the TACACS+ server for which 
+the Server responds with RESPONSE message stating that record is received.
+ 
+Advantage
+ 
+
+ 
+1.
+ 
+Provides greater granular control than RADIUS.TACACS+ allows a 
+network 
+administrator to define what commands a user may run.
+ 
+2.
+ 
+All the AAA packets are encrypted rather just passwords (in case of Radius).
+ 
+3.
+ 
+TACACS+ uses TCP instead of UDP. TCP guarantees communication between the 
+client and server.
+ 
+Disadvantage
+ 
+
+ 
+1.
+ 
+As it is 
+Cisco proprietary, therefore it can be used between the Cisco devices only.
+ 
+2.
+ 
+Less extensive support for accounting than RADIUS.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Sweta Gupta
+ 
+Roll No: 61
+ 
+SUBJECT:
+-
+ 
+ADVANCE SECURITY LAB
+ 
+ 
+ 
+PRACTICAL NO 
+
+ 
+1 
+ 
+ 
+Aim: 
+Study of various Authentication and access control services such as Radius, 
+Tacacs and Tacacs+ 
+ 
+ 
+Theory: 
+ 
+NEED OF THE PROTOCOLS:
+ 
+If a single administrator wants to access 100 routers and local database of the device is 
+used for username and password (authentication) then the administrator have to make the 
+same user account different times. Also, if he wants to keep different usernam
+e and 
+password for the devices then he have to manually change the authentication for the 
+
+ 
+To ease this task to some extent, ACS (Access Control Server) is used. ACS provides a 
+centralised management system in which t
+he database of username and password are 
+kept. Also, authorization (means what the user is authorised to do) can be configured. But 
+for this we have to tell the router to refer to ACS for its decision on authentication and 
+authorization. 
+ 
+Two protocols are
+ 
+
+ 
+1.
+ 
+TACACS+ 
+ 
+2.
+ 
+R
+ADIUS
+ 
+RADIUS 
+
+ 
+ 
+RADIUS, stands for 
+Remote Authentication Dial In User 
+S
+ervice
+, is a security protocol 
+used in AAA framework to provide centralised authentication for users who want to gain 
+access to the network. 
+ 
+Features 
+
+ 
+Some of the features of RADIUS are: 
+ 
+1.
+ 
+Open standard protocol for AAA framework i.e it can used between any ven
+dor 
+device and Cisco ACS server. 
+ 
+2.
+ 
+It uses UDP as transmission protocol. 
+ 
+3.
+ 
+It uses UDP port number 1812 for authentication and authorisation and 1813 for 
+accounting. 
+ 
+4.
+ 
+If the device and ACS server is using RADIUS then only the passwords of AAA 
+packets are enc
+rypted. 
+ 
+5.
+ 
+No explicit command authorization can be implemented. 
+ 
+6.
+ 
+In RADIUS, authentication and authorization are coupled together. 
+ 
+ 
+ 
+ 
+ 
+Working 
+
+ 
+ 
+When other device want to access Network Access Server (NAS
+-
+client of RADIUS ), it 
+will send access
+-
+request message to ACS server for the matching the credentials. In 
+response to the access
+-
+request of the client, the ACS server will provide an 
+accessaccept
+ 
+message to the client if the credentials are valid and access
+-
+reject if the 
+credentials do not match. 
+ 
+ 
+ 
+ 
+Fig Mo:1 RADIUS
+ 
+Advantage 
+
+ 
+ 
+1.
+ 
+As it is open standard, therefore it can be used between the other 
+devices also. 
+ 
+Disadvantage 
+
+ 
+ 
+1
+ 
+As RADIUS uses UDP 
+.
+ 
+2
+ 
+No explicit command authorization can be implemented. 
+ 
+3
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tacas:  
+ 
+TACACS (Terminal Access Controller Access Control System) is an older authentication 
+protocol common to UNIX networks that allows a remote access server to forward a user's 
+log
+i
+n password to an authentication server to determine whether access can be allowed to 
+a given system. TACACS is an encryption protocol and therefore less secure than the later 
+TACACS+ and Remote Authentication Dial
+-
+In User Service protocols.  
+ 
+ 
+ 
+ 
+ 
+Tacacs+: 
+ 
+Remote Access Dial In User Service (RADIUS) and Terminal Access Controller Access
+-
+Control System Plus (TACACS+) are two common security protocols used to provide 
+centralized access into networks. RADIUS was designed to authenticate and log remote
+ 
+network users, while TACACS+ is most commonly used for administrator access to 
+network devices like routers and switches. Both protocols provide centralized 
+Authentication, Authorization, and Accounting (AAA) management for computers that 
+connect and use 
+a network service. 
+ 
+Authentication 
+-
+ 
+Who is allowed to gain access to the network? Traditionally authorized users 
+provide a username and password to verify their identity for both RADIUS and TACACS+
+ 
+Authorization 
+-
+ 
+What services can a user access once they
+ 
+are authenticated? It is unlikely 
+that you want your finance people to have access to the developer database. Visitors may 
+have access only to the Internet, while only IT staff can access the entire passwords 
+database. 
+ 
+ 
+ 
+Accounting 
+-
+ 
+What services did each user access and for how long? Accounting records 
+record the user's identification, network address, point of attachment and a unique 
+session identifier
+
+these statistics are tracked and added to 
+ 
+
+is useful when time on the system is billed to individuals or 
+departments
+.
+ 
+ 
+Features
+ 
+
+ 
+Some of the features of TACACS+ are:
+ 
+1.
+ 
+Cisco proprietary protocol for AAA framework i.e it can used between the Cisco device 
+and Cisco ACS server.
+ 
+2.
+ 
+It uses TCP as transmiss
+ion protocol.
+ 
+3.
+ 
+It uses TCP port number 49.
+ 
+4.
+ 
+If the device and ACS server is using TACACS+ then all the AAA packets exchanged 
+between them are encrypted.
+ 
+5.
+ 
+It separates AAA into distinct elements i.e
+ 
+authentication, authorisation and accounting 
+are separated.
+ 
+6.
+ 
+It provides greater granular control (than RADIUS) as the commands that are authorised 
+to be used by the user can be specified.
+ 
+7.
+ 
+It provides accounting support but less extensive than RADIUS.
+ 
+Work
+ing
+ 
+
+ 
+The client of the TACACS+ is called Network Access Device (Nad) or Network Access 
+Server (NAS).Network
+ 
+Access Device will contact the TACACS+ server to obtain a 
+username prompt through
+ 
+CONTINUE
+ 
+message . The user then enters a username and the 
+Network Access Device again contact the TACACS+ server to obtain a password prompt 
+(Continue message) displaying t
+he password prompt to the user, the user enters a 
+password, and the password is then sent to the TACACS+ server.
+ 
+ 
+The server can respond with one of the following reply messages:
+ 
+
+ 
+If the credentials entered are valid then the TACACS+ server will response wi
+th an 
+ACCEPT message.
+ 
+
+ 
+If the credentials entered are not valid then the TACACS+ server will response with an 
+REJECT message.
+ 
+
+ 
+If the link between the TACACS+ server and NAS or TACACS+ server is not working 
+properly then it will respond with an ERROR message
+.
+ 
+
+ 
+If TACACS+ authorization is required, the TACACS+ server is again contacted and it 
+returns an ACCEPT or REJECT authorization response. If the ACCEPT message is 
+returned, it contains attributes which are used to determine services that a user is 
+allowed t
+o do.
+ 
+For accounting, the client will send a REQUEST message to the TACACS+ server for which 
+the Server responds with RESPONSE message stating that record is received.
+ 
+Advantage
+ 
+
+ 
+1.
+ 
+Provides greater granular control than RADIUS.TACACS+ allows a 
+network 
+administrator to define what commands a user may run.
+ 
+2.
+ 
+All the AAA packets are encrypted rather just passwords (in case of Radius).
+ 
+3.
+ 
+TACACS+ uses TCP instead of UDP. TCP guarantees communication between the 
+client and server.
+ 
+Disadvantage
+ 
+
+ 
+1.
+ 
+As it is 
+Cisco proprietary, therefore it can be used between the Cisco devices only.
+ 
+2.
+ 
+Less extensive support for accounting than RADIUS.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Sweta Gupta
+ 
+Roll No: 61
+ 
+SUBJECT:
+-
+ 
+ADVANCE SECURITY LAB
+ 
+ 
+ 
+PRACTICAL NO 
+
+ 
+1 
+ 
+ 
+Aim: 
+Study of various Authentication and access control services such as Radius, 
+Tacacs and Tacacs+ 
+ 
+ 
+Theory: 
+ 
+NEED OF THE PROTOCOLS:
+ 
+If a single administrator wants to access 100 routers and local database of the device is 
+used for username and password (authentication) then the administrator have to make the 
+same user account different times. Also, if he wants to keep different usernam
+e and 
+password for the devices then he have to manually change the authentication for the 
+
+ 
+To ease this task to some extent, ACS (Access Control Server) is used. ACS provides a 
+centralised management system in which t
+he database of username and password are 
+kept. Also, authorization (means what the user is authorised to do) can be configured. But 
+for this we have to tell the router to refer to ACS for its decision on authentication and 
+authorization. 
+ 
+Two protocols are
+ 
+
+ 
+1.
+ 
+TACACS+ 
+ 
+2.
+ 
+R
+ADIUS
+ 
+RADIUS 
+
+ 
+ 
+RADIUS, stands for 
+Remote Authentication Dial In User 
+S
+ervice
+, is a security protocol 
+used in AAA framework to provide centralised authentication for users who want to gain 
+access to the network. 
+ 
+Features 
+
+ 
+Some of the features of RADIUS are: 
+ 
+1.
+ 
+Open standard protocol for AAA framework i.e it can used between any ven
+dor 
+device and Cisco ACS server. 
+ 
+2.
+ 
+It uses UDP as transmission protocol. 
+ 
+3.
+ 
+It uses UDP port number 1812 for authentication and authorisation and 1813 for 
+accounting. 
+ 
+4.
+ 
+If the device and ACS server is using RADIUS then only the passwords of AAA 
+packets are enc
+rypted. 
+ 
+5.
+ 
+No explicit command authorization can be implemented. 
+ 
+6.
+ 
+In RADIUS, authentication and authorization are coupled together. 
+ 
+ 
+ 
+ 
+ 
+Working 
+
+ 
+ 
+When other device want to access Network Access Server (NAS
+-
+client of RADIUS ), it 
+will send access
+-
+request message to ACS server for the matching the credentials. In 
+response to the access
+-
+request of the client, the ACS server will provide an 
+accessaccept
+ 
+message to the client if the credentials are valid and access
+-
+reject if the 
+credentials do not match. 
+ 
+ 
+ 
+ 
+Fig Mo:1 RADIUS
+ 
+Advantage 
+
+ 
+ 
+1.
+ 
+As it is open standard, therefore it can be used between the other 
+devices also. 
+ 
+Disadvantage 
+
+ 
+ 
+1
+ 
+As RADIUS uses UDP 
+.
+ 
+2
+ 
+No explicit command authorization can be implemented. 
+ 
+3
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tacas:  
+ 
+TACACS (Terminal Access Controller Access Control System) is an older authentication 
+protocol common to UNIX networks that allows a remote access server to forward a user's 
+log
+i
+n password to an authentication server to determine whether access can be allowed to 
+a given system. TACACS is an encryption protocol and therefore less secure than the later 
+TACACS+ and Remote Authentication Dial
+-
+In User Service protocols.  
+ 
+ 
+ 
+ 
+ 
+Tacacs+: 
+ 
+Remote Access Dial In User Service (RADIUS) and Terminal Access Controller Access
+-
+Control System Plus (TACACS+) are two common security protocols used to provide 
+centralized access into networks. RADIUS was designed to authenticate and log remote
+ 
+network users, while TACACS+ is most commonly used for administrator access to 
+network devices like routers and switches. Both protocols provide centralized 
+Authentication, Authorization, and Accounting (AAA) management for computers that 
+connect and use 
+a network service. 
+ 
+Authentication 
+-
+ 
+Who is allowed to gain access to the network? Traditionally authorized users 
+provide a username and password to verify their identity for both RADIUS and TACACS+
+ 
+Authorization 
+-
+ 
+What services can a user access once they
+ 
+are authenticated? It is unlikely 
+that you want your finance people to have access to the developer database. Visitors may 
+have access only to the Internet, while only IT staff can access the entire passwords 
+database. 
+ 
+ 
+ 
+Accounting 
+-
+ 
+What services did each user access and for how long? Accounting records 
+record the user's identification, network address, point of attachment and a unique 
+session identifier
+
+these statistics are tracked and added to 
+ 
+
+is useful when time on the system is billed to individuals or 
+departments
+.
+ 
+ 
+Features
+ 
+
+ 
+Some of the features of TACACS+ are:
+ 
+1.
+ 
+Cisco proprietary protocol for AAA framework i.e it can used between the Cisco device 
+and Cisco ACS server.
+ 
+2.
+ 
+It uses TCP as transmiss
+ion protocol.
+ 
+3.
+ 
+It uses TCP port number 49.
+ 
+4.
+ 
+If the device and ACS server is using TACACS+ then all the AAA packets exchanged 
+between them are encrypted.
+ 
+5.
+ 
+It separates AAA into distinct elements i.e
+ 
+authentication, authorisation and accounting 
+are separated.
+ 
+6.
+ 
+It provides greater granular control (than RADIUS) as the commands that are authorised 
+to be used by the user can be specified.
+ 
+7.
+ 
+It provides accounting support but less extensive than RADIUS.
+ 
+Work
+ing
+ 
+
+ 
+The client of the TACACS+ is called Network Access Device (Nad) or Network Access 
+Server (NAS).Network
+ 
+Access Device will contact the TACACS+ server to obtain a 
+username prompt through
+ 
+CONTINUE
+ 
+message . The user then enters a username and the 
+Network Access Device again contact the TACACS+ server to obtain a password prompt 
+(Continue message) displaying t
+he password prompt to the user, the user enters a 
+password, and the password is then sent to the TACACS+ server.
+ 
+ 
+The server can respond with one of the following reply messages:
+ 
+
+ 
+If the credentials entered are valid then the TACACS+ server will response wi
+th an 
+ACCEPT message.
+ 
+
+ 
+If the credentials entered are not valid then the TACACS+ server will response with an 
+REJECT message.
+ 
+
+ 
+If the link between the TACACS+ server and NAS or TACACS+ server is not working 
+properly then it will respond with an ERROR message
+.
+ 
+
+ 
+If TACACS+ authorization is required, the TACACS+ server is again contacted and it 
+returns an ACCEPT or REJECT authorization response. If the ACCEPT message is 
+returned, it contains attributes which are used to determine services that a user is 
+allowed t
+o do.
+ 
+For accounting, the client will send a REQUEST message to the TACACS+ server for which 
+the Server responds with RESPONSE message stating that record is received.
+ 
+Advantage
+ 
+
+ 
+1.
+ 
+Provides greater granular control than RADIUS.TACACS+ allows a 
+network 
+administrator to define what commands a user may run.
+ 
+2.
+ 
+All the AAA packets are encrypted rather just passwords (in case of Radius).
+ 
+3.
+ 
+TACACS+ uses TCP instead of UDP. TCP guarantees communication between the 
+client and server.
+ 
+Disadvantage
+ 
+
+ 
+1.
+ 
+As it is 
+Cisco proprietary, therefore it can be used between the Cisco devices only.
+ 
+2.
+ 
+Less extensive support for accounting than RADIUS.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Statement of Purpose
+ 
+
+quit
+. I never did, and I have abolished it. This adage is a composite of the life 
+experiences I have assimilated in the academic domain. In the second year of my graduation, I scored 
+poorly in one of the subjects which required an adept understanding of coding
+. Hailing from an IT 
+background, I was expected to perform well, but it turned out to be otherwise, and I was mocked for 
+my inefficiency. You'll be criticized at some point in life, but the decision to fail or succeed depends on 
+
+to work hard and prove my worth. With consistency, perseverance, and 
+dedication, I transformed my destiny and today, owing to my strong background in the Information 
+Technology sector, is the reason why I have decided to apply for admission in the Master o
+f Computer 
+Science program at your esteemed university. My hope and ambition from the Master program at 
+G
+eorge Mason 
+University
+ 
+are that it will thrust me into an all
+-
+new realm of intellectual acquisitions that 
+will act as the wind 
+beneath
+ 
+my wings and let me so
+ar to new heights as a passionate entrepreneur 
+shortly.
+ 
+ 
+As soon as I surpassed my schooling years, I secured my place in the Bachelor of Engineering 
+Technology program. The four year
+-
+program trained me to put my analytical abilities, innovatively 
+creative
+ 
+vision and technical astuteness to good use. Given how 
+-
+inclined I was in computer systems 
+
+me with a very holistic idea of the field. The USP of the un
+dergrad course plunged me into study 
+experiences that equally informed me about the complexities of programming and operating systems. 
+For the most part, though, I enjoyed my undergraduate innings because it helped me refine my technical 
+and analytical tra
+its. While pursuing my undergraduate studies, I mastered research and development, 
+expanding my intellectual capacity and improving my analytical and technical capabilities.
+ 
+ 
+ 
+Right from the onset of the undergraduate program, I ensured that I dug my heels
+ 
+deep in all subjects 
+
+particularly invested in the study experiences. Second
+-
+year onwards, I was exposed to various 
+information technology and computer scien
+
+
+ 
+Data Structures & 
+
+, along with many academic projects that allowed me to gather practical 
+exp
+erience. The courses served as a base for me and I enjoyed hustling with them. But I found my 
+interest in the programming aspect bolstered when I commenced my business venture. Experimenting 
+with a small project, I soon started getting many orders for webs
+ite development. I realized that my 
+technical acumen amalgamated with a creative approach can help me establish myself in this 
+
+help of this project, the user 
+can summarize long texts using three types of input options: Audio, 
+Document, and Text. Based on the option selected, the application will convert the input into plain text, 
+and then the summarizer will convert the text into a simplified output, which is t
+he summary of the text. 
+Depending on the option selected by the user, the summarized result will be displayed on the screen or 
+converted into audio. Then the user will be able to hear the summarized output text.
+ 
+ 
+My internship stint at Farsoft Infotech Pvt
+ 
+Ltd played a vital role in inculcating love and passion for 
+Computer Science. I got an opportunity to juggle various programming languages. Appointed as a Full 
+Stack Web Developer, I worked on a project wherein I created a website for the School ERP syste
+m. 
+Due to my internship at a reputed IT company called Farsoft Infotech Pvt Ltd located in Mumbai, I got 
+hands
+-
+on experience using ASP.NET MVC using C# for Back
+-
+End, HTML, CSS, JavaScript, jQuery 
+for front
+-
+end and Microsoft SQL Server for Database Manageme
+nt System. This internship allowed me 
+to know the various challenges faced during the development and hosting. Positive appreciation and 
+steady demand for my work are two aspects that motivated me to believe in myself and pursue my 
+
+ence.
+ 
+ 
+Along with enriching my grip on the technical aspect, I also worked on my
+ 
+logical and analytical 
+thinking. Owing to my exceptional communication skills, I interacted with a few clients. Further, I 
+consistently proved my worth by working on projects 
+under strict deadlines while maintaining ultimate 
+accuracy. Therefore, I can say that academic expertise is one side of a coin, but the practical execution 
+of your knowledge is the only way to judge your capability and willingness to spend the next 50 year
+s 
+doing the same work. I believe that "programming" has captivated my interest. Further widening my 
+spectrum of knowledge with a post
+-
+graduation in computer science will open gates to accomplish my 
+goals of becoming a reputed Software Developer soon. At th
+is point, I must mention that I did work on 
+a live internship project thrice before 
+
+ 
+School ERP, NGO Website and B2B E
+-
+Commerce Website. 
+The work experiences and my academic trajectory have made me desirous of furthering my abilities as 
+a "programmer" and
+ 
+broadening my knowledge in the disciplines of Computer Science. As a result, I 
+am applying for a place in the graduate program at your university.
+ 
+ 
+With all the efforts I have endured in my academic and professional forays, pursuing higher studies in 
+Comp
+uter Science is the best way to complete the educational journey and commence my professional 
+innings after that. Getting selected in the Master of Computer Science program at 
+G
+eorge Mason 
+University
+ 
+would equip me with the skills and abilities required to trans
+form my dream into a reality. 
+In conjunction with the experienced faculty and the wealth of available resources, the curriculum would 
+create the perfect environment to pursue my continued interest in computer science and information 
+technology. To be in th
+e august company of world
+-
+renowned professors and researchers is a once
+-
+in
+-
+a
+-
+lifetime opportunity to learn and apply the theoretical knowledge gained during the course to solve real
+-
+world problems and attain extensive practical hands
+-
+on experience. I'm con
+vinced that at 
+G
+eorge Mason 
+University
+, I will be able to make the most of the whole rounded development, grow as a student and 
+researcher, and take myself a step closer to my goals. Furthermore, the exposure and credentials I earn 
+at the university will enable 
+me to realize my career dream of working as a Website Developer in a 
+reputable company, being a part of a team, and later leading the team that is doing some pioneering 
+work and making a difference.
+  
+To conclude, I am sure that I will add value to the grad
+uate program at 
+G
+eorge Mason 
+University
+ 
+as I am driven and dedicated. I want to utilize this academic platform to 
+interact with like
+-
+minded individuals and discover the uncharted territory in this domain.
+ 
+Statement of Purpose
+ 
+
+quit
+. I never did, and I have abolished it. This adage is a composite of the life 
+experiences I have assimilated in the academic domain. In the second year of my graduation, I scored 
+poorly in one of the subjects which required an adept understanding of coding
+. Hailing from an IT 
+background, I was expected to perform well, but it turned out to be otherwise, and I was mocked for 
+my inefficiency. You'll be criticized at some point in life, but the decision to fail or succeed depends on 
+
+to work hard and prove my worth. With consistency, perseverance, and 
+dedication, I transformed my destiny and today, owing to my strong background in the Information 
+Technology sector, is the reason why I have decided to apply for admission in the Master o
+f Computer 
+Science program at your esteemed university. My hope and ambition from the Master program at 
+G
+eorge Mason 
+University
+ 
+are that it will thrust me into an all
+-
+new realm of intellectual acquisitions that 
+will act as the wind 
+beneath
+ 
+my wings and let me so
+ar to new heights as a passionate entrepreneur 
+shortly.
+ 
+ 
+As soon as I surpassed my schooling years, I secured my place in the Bachelor of Engineering 
+Technology program. The four year
+-
+program trained me to put my analytical abilities, innovatively 
+creative
+ 
+vision and technical astuteness to good use. Given how 
+-
+inclined I was in computer systems 
+
+me with a very holistic idea of the field. The USP of the un
+dergrad course plunged me into study 
+experiences that equally informed me about the complexities of programming and operating systems. 
+For the most part, though, I enjoyed my undergraduate innings because it helped me refine my technical 
+and analytical tra
+its. While pursuing my undergraduate studies, I mastered research and development, 
+expanding my intellectual capacity and improving my analytical and technical capabilities.
+ 
+ 
+ 
+Right from the onset of the undergraduate program, I ensured that I dug my heels
+ 
+deep in all subjects 
+
+particularly invested in the study experiences. Second
+-
+year onwards, I was exposed to various 
+information technology and computer scien
+
+
+ 
+Data Structures & 
+
+, along with many academic projects that allowed me to gather practical 
+exp
+erience. The courses served as a base for me and I enjoyed hustling with them. But I found my 
+interest in the programming aspect bolstered when I commenced my business venture. Experimenting 
+with a small project, I soon started getting many orders for webs
+ite development. I realized that my 
+technical acumen amalgamated with a creative approach can help me establish myself in this 
+
+help of this project, the user 
+can summarize long texts using three types of input options: Audio, 
+Document, and Text. Based on the option selected, the application will convert the input into plain text, 
+and then the summarizer will convert the text into a simplified output, which is t
+he summary of the text. 
+Depending on the option selected by the user, the summarized result will be displayed on the screen or 
+converted into audio. Then the user will be able to hear the summarized output text.
+ 
+ 
+My internship stint at Farsoft Infotech Pvt
+ 
+Ltd played a vital role in inculcating love and passion for 
+Computer Science. I got an opportunity to juggle various programming languages. Appointed as a Full 
+Stack Web Developer, I worked on a project wherein I created a website for the School ERP syste
+m. 
+Due to my internship at a reputed IT company called Farsoft Infotech Pvt Ltd located in Mumbai, I got 
+hands
+-
+on experience using ASP.NET MVC using C# for Back
+-
+End, HTML, CSS, JavaScript, jQuery 
+for front
+-
+end and Microsoft SQL Server for Database Manageme
+nt System. This internship allowed me 
+to know the various challenges faced during the development and hosting. Positive appreciation and 
+steady demand for my work are two aspects that motivated me to believe in myself and pursue my 
+
+ence.
+ 
+ 
+Along with enriching my grip on the technical aspect, I also worked on my
+ 
+logical and analytical 
+thinking. Owing to my exceptional communication skills, I interacted with a few clients. Further, I 
+consistently proved my worth by working on projects 
+under strict deadlines while maintaining ultimate 
+accuracy. Therefore, I can say that academic expertise is one side of a coin, but the practical execution 
+of your knowledge is the only way to judge your capability and willingness to spend the next 50 year
+s 
+doing the same work. I believe that "programming" has captivated my interest. Further widening my 
+spectrum of knowledge with a post
+-
+graduation in computer science will open gates to accomplish my 
+goals of becoming a reputed Software Developer soon. At th
+is point, I must mention that I did work on 
+a live internship project thrice before 
+
+ 
+School ERP, NGO Website and B2B E
+-
+Commerce Website. 
+The work experiences and my academic trajectory have made me desirous of furthering my abilities as 
+a "programmer" and
+ 
+broadening my knowledge in the disciplines of Computer Science. As a result, I 
+am applying for a place in the graduate program at your university.
+ 
+ 
+With all the efforts I have endured in my academic and professional forays, pursuing higher studies in 
+Comp
+uter Science is the best way to complete the educational journey and commence my professional 
+innings after that. Getting selected in the Master of Computer Science program at 
+G
+eorge Mason 
+University
+ 
+would equip me with the skills and abilities required to trans
+form my dream into a reality. 
+In conjunction with the experienced faculty and the wealth of available resources, the curriculum would 
+create the perfect environment to pursue my continued interest in computer science and information 
+technology. To be in th
+e august company of world
+-
+renowned professors and researchers is a once
+-
+in
+-
+a
+-
+lifetime opportunity to learn and apply the theoretical knowledge gained during the course to solve real
+-
+world problems and attain extensive practical hands
+-
+on experience. I'm con
+vinced that at 
+G
+eorge Mason 
+University
+, I will be able to make the most of the whole rounded development, grow as a student and 
+researcher, and take myself a step closer to my goals. Furthermore, the exposure and credentials I earn 
+at the university will enable 
+me to realize my career dream of working as a Website Developer in a 
+reputable company, being a part of a team, and later leading the team that is doing some pioneering 
+work and making a difference.
+  
+To conclude, I am sure that I will add value to the grad
+uate program at 
+G
+eorge Mason 
+University
+ 
+as I am driven and dedicated. I want to utilize this academic platform to 
+interact with like
+-
+minded individuals and discover the uncharted territory in this domain.
+ 
+Statement of Purpose
+ 
+
+quit
+. I never did, and I have abolished it. This adage is a composite of the life 
+experiences I have assimilated in the academic domain. In the second year of my graduation, I scored 
+poorly in one of the subjects which required an adept understanding of coding
+. Hailing from an IT 
+background, I was expected to perform well, but it turned out to be otherwise, and I was mocked for 
+my inefficiency. You'll be criticized at some point in life, but the decision to fail or succeed depends on 
+
+to work hard and prove my worth. With consistency, perseverance, and 
+dedication, I transformed my destiny and today, owing to my strong background in the Information 
+Technology sector, is the reason why I have decided to apply for admission in the Master o
+f Computer 
+Science program at your esteemed university. My hope and ambition from the Master program at 
+G
+eorge Mason 
+University
+ 
+are that it will thrust me into an all
+-
+new realm of intellectual acquisitions that 
+will act as the wind 
+beneath
+ 
+my wings and let me so
+ar to new heights as a passionate entrepreneur 
+shortly.
+ 
+ 
+As soon as I surpassed my schooling years, I secured my place in the Bachelor of Engineering 
+Technology program. The four year
+-
+program trained me to put my analytical abilities, innovatively 
+creative
+ 
+vision and technical astuteness to good use. Given how 
+-
+inclined I was in computer systems 
+
+me with a very holistic idea of the field. The USP of the un
+dergrad course plunged me into study 
+experiences that equally informed me about the complexities of programming and operating systems. 
+For the most part, though, I enjoyed my undergraduate innings because it helped me refine my technical 
+and analytical tra
+its. While pursuing my undergraduate studies, I mastered research and development, 
+expanding my intellectual capacity and improving my analytical and technical capabilities.
+ 
+ 
+ 
+Right from the onset of the undergraduate program, I ensured that I dug my heels
+ 
+deep in all subjects 
+
+particularly invested in the study experiences. Second
+-
+year onwards, I was exposed to various 
+information technology and computer scien
+
+
+ 
+Data Structures & 
+
+, along with many academic projects that allowed me to gather practical 
+exp
+erience. The courses served as a base for me and I enjoyed hustling with them. But I found my 
+interest in the programming aspect bolstered when I commenced my business venture. Experimenting 
+with a small project, I soon started getting many orders for webs
+ite development. I realized that my 
+technical acumen amalgamated with a creative approach can help me establish myself in this 
+
+help of this project, the user 
+can summarize long texts using three types of input options: Audio, 
+Document, and Text. Based on the option selected, the application will convert the input into plain text, 
+and then the summarizer will convert the text into a simplified output, which is t
+he summary of the text. 
+Depending on the option selected by the user, the summarized result will be displayed on the screen or 
+converted into audio. Then the user will be able to hear the summarized output text.
+ 
+ 
+My internship stint at Farsoft Infotech Pvt
+ 
+Ltd played a vital role in inculcating love and passion for 
+Computer Science. I got an opportunity to juggle various programming languages. Appointed as a Full 
+Stack Web Developer, I worked on a project wherein I created a website for the School ERP syste
+m. 
+Due to my internship at a reputed IT company called Farsoft Infotech Pvt Ltd located in Mumbai, I got 
+hands
+-
+on experience using ASP.NET MVC using C# for Back
+-
+End, HTML, CSS, JavaScript, jQuery 
+for front
+-
+end and Microsoft SQL Server for Database Manageme
+nt System. This internship allowed me 
+to know the various challenges faced during the development and hosting. Positive appreciation and 
+steady demand for my work are two aspects that motivated me to believe in myself and pursue my 
+
+ence.
+ 
+ 
+Along with enriching my grip on the technical aspect, I also worked on my
+ 
+logical and analytical 
+thinking. Owing to my exceptional communication skills, I interacted with a few clients. Further, I 
+consistently proved my worth by working on projects 
+under strict deadlines while maintaining ultimate 
+accuracy. Therefore, I can say that academic expertise is one side of a coin, but the practical execution 
+of your knowledge is the only way to judge your capability and willingness to spend the next 50 year
+s 
+doing the same work. I believe that "programming" has captivated my interest. Further widening my 
+spectrum of knowledge with a post
+-
+graduation in computer science will open gates to accomplish my 
+goals of becoming a reputed Software Developer soon. At th
+is point, I must mention that I did work on 
+a live internship project thrice before 
+
+ 
+School ERP, NGO Website and B2B E
+-
+Commerce Website. 
+The work experiences and my academic trajectory have made me desirous of furthering my abilities as 
+a "programmer" and
+ 
+broadening my knowledge in the disciplines of Computer Science. As a result, I 
+am applying for a place in the graduate program at your university.
+ 
+ 
+With all the efforts I have endured in my academic and professional forays, pursuing higher studies in 
+Comp
+uter Science is the best way to complete the educational journey and commence my professional 
+innings after that. Getting selected in the Master of Computer Science program at 
+G
+eorge Mason 
+University
+ 
+would equip me with the skills and abilities required to trans
+form my dream into a reality. 
+In conjunction with the experienced faculty and the wealth of available resources, the curriculum would 
+create the perfect environment to pursue my continued interest in computer science and information 
+technology. To be in th
+e august company of world
+-
+renowned professors and researchers is a once
+-
+in
+-
+a
+-
+lifetime opportunity to learn and apply the theoretical knowledge gained during the course to solve real
+-
+world problems and attain extensive practical hands
+-
+on experience. I'm con
+vinced that at 
+G
+eorge Mason 
+University
+, I will be able to make the most of the whole rounded development, grow as a student and 
+researcher, and take myself a step closer to my goals. Furthermore, the exposure and credentials I earn 
+at the university will enable 
+me to realize my career dream of working as a Website Developer in a 
+reputable company, being a part of a team, and later leading the team that is doing some pioneering 
+work and making a difference.
+  
+To conclude, I am sure that I will add value to the grad
+uate program at 
+G
+eorge Mason 
+University
+ 
+as I am driven and dedicated. I want to utilize this academic platform to 
+interact with like
+-
+minded individuals and discover the uncharted territory in this domain.
+ 
+Statement of Purpose
+ 
+
+quit
+. I never did, and I have abolished it. This adage is a composite of the life 
+experiences I have assimilated in the academic domain. In the second year of my graduation, I scored 
+poorly in one of the subjects which required an adept understanding of coding
+. Hailing from an IT 
+background, I was expected to perform well, but it turned out to be otherwise, and I was mocked for 
+my inefficiency. You'll be criticized at some point in life, but the decision to fail or succeed depends on 
+
+to work hard and prove my worth. With consistency, perseverance, and 
+dedication, I transformed my destiny and today, owing to my strong background in the Information 
+Technology sector, is the reason why I have decided to apply for admission in the Master o
+f Computer 
+Science program at your esteemed university. My hope and ambition from the Master program at 
+G
+eorge Mason 
+University
+ 
+are that it will thrust me into an all
+-
+new realm of intellectual acquisitions that 
+will act as the wind 
+beneath
+ 
+my wings and let me so
+ar to new heights as a passionate entrepreneur 
+shortly.
+ 
+ 
+As soon as I surpassed my schooling years, I secured my place in the Bachelor of Engineering 
+Technology program. The four year
+-
+program trained me to put my analytical abilities, innovatively 
+creative
+ 
+vision and technical astuteness to good use. Given how 
+-
+inclined I was in computer systems 
+
+me with a very holistic idea of the field. The USP of the un
+dergrad course plunged me into study 
+experiences that equally informed me about the complexities of programming and operating systems. 
+For the most part, though, I enjoyed my undergraduate innings because it helped me refine my technical 
+and analytical tra
+its. While pursuing my undergraduate studies, I mastered research and development, 
+expanding my intellectual capacity and improving my analytical and technical capabilities.
+ 
+ 
+ 
+Right from the onset of the undergraduate program, I ensured that I dug my heels
+ 
+deep in all subjects 
+
+particularly invested in the study experiences. Second
+-
+year onwards, I was exposed to various 
+information technology and computer scien
+
+
+ 
+Data Structures & 
+
+, along with many academic projects that allowed me to gather practical 
+exp
+erience. The courses served as a base for me and I enjoyed hustling with them. But I found my 
+interest in the programming aspect bolstered when I commenced my business venture. Experimenting 
+with a small project, I soon started getting many orders for webs
+ite development. I realized that my 
+technical acumen amalgamated with a creative approach can help me establish myself in this 
+
+help of this project, the user 
+can summarize long texts using three types of input options: Audio, 
+Document, and Text. Based on the option selected, the application will convert the input into plain text, 
+and then the summarizer will convert the text into a simplified output, which is t
+he summary of the text. 
+Depending on the option selected by the user, the summarized result will be displayed on the screen or 
+converted into audio. Then the user will be able to hear the summarized output text.
+ 
+ 
+My internship stint at Farsoft Infotech Pvt
+ 
+Ltd played a vital role in inculcating love and passion for 
+Computer Science. I got an opportunity to juggle various programming languages. Appointed as a Full 
+Stack Web Developer, I worked on a project wherein I created a website for the School ERP syste
+m. 
+Due to my internship at a reputed IT company called Farsoft Infotech Pvt Ltd located in Mumbai, I got 
+hands
+-
+on experience using ASP.NET MVC using C# for Back
+-
+End, HTML, CSS, JavaScript, jQuery 
+for front
+-
+end and Microsoft SQL Server for Database Manageme
+nt System. This internship allowed me 
+to know the various challenges faced during the development and hosting. Positive appreciation and 
+steady demand for my work are two aspects that motivated me to believe in myself and pursue my 
+
+ence.
+ 
+ 
+Along with enriching my grip on the technical aspect, I also worked on my
+ 
+logical and analytical 
+thinking. Owing to my exceptional communication skills, I interacted with a few clients. Further, I 
+consistently proved my worth by working on projects 
+under strict deadlines while maintaining ultimate 
+accuracy. Therefore, I can say that academic expertise is one side of a coin, but the practical execution 
+of your knowledge is the only way to judge your capability and willingness to spend the next 50 year
+s 
+doing the same work. I believe that "programming" has captivated my interest. Further widening my 
+spectrum of knowledge with a post
+-
+graduation in computer science will open gates to accomplish my 
+goals of becoming a reputed Software Developer soon. At th
+is point, I must mention that I did work on 
+a live internship project thrice before 
+
+ 
+School ERP, NGO Website and B2B E
+-
+Commerce Website. 
+The work experiences and my academic trajectory have made me desirous of furthering my abilities as 
+a "programmer" and
+ 
+broadening my knowledge in the disciplines of Computer Science. As a result, I 
+am applying for a place in the graduate program at your university.
+ 
+ 
+With all the efforts I have endured in my academic and professional forays, pursuing higher studies in 
+Comp
+uter Science is the best way to complete the educational journey and commence my professional 
+innings after that. Getting selected in the Master of Computer Science program at 
+G
+eorge Mason 
+University
+ 
+would equip me with the skills and abilities required to trans
+form my dream into a reality. 
+In conjunction with the experienced faculty and the wealth of available resources, the curriculum would 
+create the perfect environment to pursue my continued interest in computer science and information 
+technology. To be in th
+e august company of world
+-
+renowned professors and researchers is a once
+-
+in
+-
+a
+-
+lifetime opportunity to learn and apply the theoretical knowledge gained during the course to solve real
+-
+world problems and attain extensive practical hands
+-
+on experience. I'm con
+vinced that at 
+G
+eorge Mason 
+University
+, I will be able to make the most of the whole rounded development, grow as a student and 
+researcher, and take myself a step closer to my goals. Furthermore, the exposure and credentials I earn 
+at the university will enable 
+me to realize my career dream of working as a Website Developer in a 
+reputable company, being a part of a team, and later leading the team that is doing some pioneering 
+work and making a difference.
+  
+To conclude, I am sure that I will add value to the grad
+uate program at 
+G
+eorge Mason 
+University
+ 
+as I am driven and dedicated. I want to utilize this academic platform to 
+interact with like
+-
+minded individuals and discover the uncharted territory in this domain.
+ 
+Sweta Gupta
+ 
+Roll No: 61
+ 
+SUBJECT:
+-
+ 
+ADVANCE SECURITY LAB
+ 
+ 
+ 
+PRACTICAL NO 
+
+ 
+1 
+ 
+ 
+Aim: 
+Study of various Authentication and access control services such as Radius, 
+Tacacs and Tacacs+ 
+ 
+ 
+Theory: 
+ 
+NEED OF THE PROTOCOLS:
+ 
+If a single administrator wants to access 100 routers and local database of the device is 
+used for username and password (authentication) then the administrator have to make the 
+same user account different times. Also, if he wants to keep different usernam
+e and 
+password for the devices then he have to manually change the authentication for the 
+
+ 
+To ease this task to some extent, ACS (Access Control Server) is used. ACS provides a 
+centralised management system in which t
+he database of username and password are 
+kept. Also, authorization (means what the user is authorised to do) can be configured. But 
+for this we have to tell the router to refer to ACS for its decision on authentication and 
+authorization. 
+ 
+Two protocols are
+ 
+
+ 
+1.
+ 
+TACACS+ 
+ 
+2.
+ 
+R
+ADIUS
+ 
+RADIUS 
+
+ 
+ 
+RADIUS, stands for 
+Remote Authentication Dial In User 
+S
+ervice
+, is a security protocol 
+used in AAA framework to provide centralised authentication for users who want to gain 
+access to the network. 
+ 
+Features 
+
+ 
+Some of the features of RADIUS are: 
+ 
+1.
+ 
+Open standard protocol for AAA framework i.e it can used between any ven
+dor 
+device and Cisco ACS server. 
+ 
+2.
+ 
+It uses UDP as transmission protocol. 
+ 
+3.
+ 
+It uses UDP port number 1812 for authentication and authorisation and 1813 for 
+accounting. 
+ 
+4.
+ 
+If the device and ACS server is using RADIUS then only the passwords of AAA 
+packets are enc
+rypted. 
+ 
+5.
+ 
+No explicit command authorization can be implemented. 
+ 
+6.
+ 
+In RADIUS, authentication and authorization are coupled together. 
+ 
+ 
+ 
+ 
+ 
+Working 
+
+ 
+ 
+When other device want to access Network Access Server (NAS
+-
+client of RADIUS ), it 
+will send access
+-
+request message to ACS server for the matching the credentials. In 
+response to the access
+-
+request of the client, the ACS server will provide an 
+accessaccept
+ 
+message to the client if the credentials are valid and access
+-
+reject if the 
+credentials do not match. 
+ 
+ 
+ 
+ 
+Fig Mo:1 RADIUS
+ 
+Advantage 
+
+ 
+ 
+1.
+ 
+As it is open standard, therefore it can be used between the other 
+devices also. 
+ 
+Disadvantage 
+
+ 
+ 
+1
+ 
+As RADIUS uses UDP 
+.
+ 
+2
+ 
+No explicit command authorization can be implemented. 
+ 
+3
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tacas:  
+ 
+TACACS (Terminal Access Controller Access Control System) is an older authentication 
+protocol common to UNIX networks that allows a remote access server to forward a user's 
+log
+i
+n password to an authentication server to determine whether access can be allowed to 
+a given system. TACACS is an encryption protocol and therefore less secure than the later 
+TACACS+ and Remote Authentication Dial
+-
+In User Service protocols.  
+ 
+ 
+ 
+ 
+ 
+Tacacs+: 
+ 
+Remote Access Dial In User Service (RADIUS) and Terminal Access Controller Access
+-
+Control System Plus (TACACS+) are two common security protocols used to provide 
+centralized access into networks. RADIUS was designed to authenticate and log remote
+ 
+network users, while TACACS+ is most commonly used for administrator access to 
+network devices like routers and switches. Both protocols provide centralized 
+Authentication, Authorization, and Accounting (AAA) management for computers that 
+connect and use 
+a network service. 
+ 
+Authentication 
+-
+ 
+Who is allowed to gain access to the network? Traditionally authorized users 
+provide a username and password to verify their identity for both RADIUS and TACACS+
+ 
+Authorization 
+-
+ 
+What services can a user access once they
+ 
+are authenticated? It is unlikely 
+that you want your finance people to have access to the developer database. Visitors may 
+have access only to the Internet, while only IT staff can access the entire passwords 
+database. 
+ 
+ 
+ 
+Accounting 
+-
+ 
+What services did each user access and for how long? Accounting records 
+record the user's identification, network address, point of attachment and a unique 
+session identifier
+
+these statistics are tracked and added to 
+ 
+
+is useful when time on the system is billed to individuals or 
+departments
+.
+ 
+ 
+Features
+ 
+
+ 
+Some of the features of TACACS+ are:
+ 
+1.
+ 
+Cisco proprietary protocol for AAA framework i.e it can used between the Cisco device 
+and Cisco ACS server.
+ 
+2.
+ 
+It uses TCP as transmiss
+ion protocol.
+ 
+3.
+ 
+It uses TCP port number 49.
+ 
+4.
+ 
+If the device and ACS server is using TACACS+ then all the AAA packets exchanged 
+between them are encrypted.
+ 
+5.
+ 
+It separates AAA into distinct elements i.e
+ 
+authentication, authorisation and accounting 
+are separated.
+ 
+6.
+ 
+It provides greater granular control (than RADIUS) as the commands that are authorised 
+to be used by the user can be specified.
+ 
+7.
+ 
+It provides accounting support but less extensive than RADIUS.
+ 
+Work
+ing
+ 
+
+ 
+The client of the TACACS+ is called Network Access Device (Nad) or Network Access 
+Server (NAS).Network
+ 
+Access Device will contact the TACACS+ server to obtain a 
+username prompt through
+ 
+CONTINUE
+ 
+message . The user then enters a username and the 
+Network Access Device again contact the TACACS+ server to obtain a password prompt 
+(Continue message) displaying t
+he password prompt to the user, the user enters a 
+password, and the password is then sent to the TACACS+ server.
+ 
+ 
+The server can respond with one of the following reply messages:
+ 
+
+ 
+If the credentials entered are valid then the TACACS+ server will response wi
+th an 
+ACCEPT message.
+ 
+
+ 
+If the credentials entered are not valid then the TACACS+ server will response with an 
+REJECT message.
+ 
+
+ 
+If the link between the TACACS+ server and NAS or TACACS+ server is not working 
+properly then it will respond with an ERROR message
+.
+ 
+
+ 
+If TACACS+ authorization is required, the TACACS+ server is again contacted and it 
+returns an ACCEPT or REJECT authorization response. If the ACCEPT message is 
+returned, it contains attributes which are used to determine services that a user is 
+allowed t
+o do.
+ 
+For accounting, the client will send a REQUEST message to the TACACS+ server for which 
+the Server responds with RESPONSE message stating that record is received.
+ 
+Advantage
+ 
+
+ 
+1.
+ 
+Provides greater granular control than RADIUS.TACACS+ allows a 
+network 
+administrator to define what commands a user may run.
+ 
+2.
+ 
+All the AAA packets are encrypted rather just passwords (in case of Radius).
+ 
+3.
+ 
+TACACS+ uses TCP instead of UDP. TCP guarantees communication between the 
+client and server.
+ 
+Disadvantage
+ 
+
+ 
+1.
+ 
+As it is 
+Cisco proprietary, therefore it can be used between the Cisco devices only.
+ 
+2.
+ 
+Less extensive support for accounting than RADIUS.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Sweta Gupta
+ 
+Roll No: 61
+ 
+SUBJECT:
+-
+ 
+ADVANCE SECURITY LAB
+ 
+ 
+ 
+PRACTICAL NO 
+
+ 
+1 
+ 
+ 
+Aim: 
+Study of various Authentication and access control services such as Radius, 
+Tacacs and Tacacs+ 
+ 
+ 
+Theory: 
+ 
+NEED OF THE PROTOCOLS:
+ 
+If a single administrator wants to access 100 routers and local database of the device is 
+used for username and password (authentication) then the administrator have to make the 
+same user account different times. Also, if he wants to keep different usernam
+e and 
+password for the devices then he have to manually change the authentication for the 
+
+ 
+To ease this task to some extent, ACS (Access Control Server) is used. ACS provides a 
+centralised management system in which t
+he database of username and password are 
+kept. Also, authorization (means what the user is authorised to do) can be configured. But 
+for this we have to tell the router to refer to ACS for its decision on authentication and 
+authorization. 
+ 
+Two protocols are
+ 
+
+ 
+1.
+ 
+TACACS+ 
+ 
+2.
+ 
+R
+ADIUS
+ 
+RADIUS 
+
+ 
+ 
+RADIUS, stands for 
+Remote Authentication Dial In User 
+S
+ervice
+, is a security protocol 
+used in AAA framework to provide centralised authentication for users who want to gain 
+access to the network. 
+ 
+Features 
+
+ 
+Some of the features of RADIUS are: 
+ 
+1.
+ 
+Open standard protocol for AAA framework i.e it can used between any ven
+dor 
+device and Cisco ACS server. 
+ 
+2.
+ 
+It uses UDP as transmission protocol. 
+ 
+3.
+ 
+It uses UDP port number 1812 for authentication and authorisation and 1813 for 
+accounting. 
+ 
+4.
+ 
+If the device and ACS server is using RADIUS then only the passwords of AAA 
+packets are enc
+rypted. 
+ 
+5.
+ 
+No explicit command authorization can be implemented. 
+ 
+6.
+ 
+In RADIUS, authentication and authorization are coupled together. 
+ 
+ 
+ 
+ 
+ 
+Working 
+
+ 
+ 
+When other device want to access Network Access Server (NAS
+-
+client of RADIUS ), it 
+will send access
+-
+request message to ACS server for the matching the credentials. In 
+response to the access
+-
+request of the client, the ACS server will provide an 
+accessaccept
+ 
+message to the client if the credentials are valid and access
+-
+reject if the 
+credentials do not match. 
+ 
+ 
+ 
+ 
+Fig Mo:1 RADIUS
+ 
+Advantage 
+
+ 
+ 
+1.
+ 
+As it is open standard, therefore it can be used between the other 
+devices also. 
+ 
+Disadvantage 
+
+ 
+ 
+1
+ 
+As RADIUS uses UDP 
+.
+ 
+2
+ 
+No explicit command authorization can be implemented. 
+ 
+3
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tacas:  
+ 
+TACACS (Terminal Access Controller Access Control System) is an older authentication 
+protocol common to UNIX networks that allows a remote access server to forward a user's 
+log
+i
+n password to an authentication server to determine whether access can be allowed to 
+a given system. TACACS is an encryption protocol and therefore less secure than the later 
+TACACS+ and Remote Authentication Dial
+-
+In User Service protocols.  
+ 
+ 
+ 
+ 
+ 
+Tacacs+: 
+ 
+Remote Access Dial In User Service (RADIUS) and Terminal Access Controller Access
+-
+Control System Plus (TACACS+) are two common security protocols used to provide 
+centralized access into networks. RADIUS was designed to authenticate and log remote
+ 
+network users, while TACACS+ is most commonly used for administrator access to 
+network devices like routers and switches. Both protocols provide centralized 
+Authentication, Authorization, and Accounting (AAA) management for computers that 
+connect and use 
+a network service. 
+ 
+Authentication 
+-
+ 
+Who is allowed to gain access to the network? Traditionally authorized users 
+provide a username and password to verify their identity for both RADIUS and TACACS+
+ 
+Authorization 
+-
+ 
+What services can a user access once they
+ 
+are authenticated? It is unlikely 
+that you want your finance people to have access to the developer database. Visitors may 
+have access only to the Internet, while only IT staff can access the entire passwords 
+database. 
+ 
+ 
+ 
+Accounting 
+-
+ 
+What services did each user access and for how long? Accounting records 
+record the user's identification, network address, point of attachment and a unique 
+session identifier
+
+these statistics are tracked and added to 
+ 
+
+is useful when time on the system is billed to individuals or 
+departments
+.
+ 
+ 
+Features
+ 
+
+ 
+Some of the features of TACACS+ are:
+ 
+1.
+ 
+Cisco proprietary protocol for AAA framework i.e it can used between the Cisco device 
+and Cisco ACS server.
+ 
+2.
+ 
+It uses TCP as transmiss
+ion protocol.
+ 
+3.
+ 
+It uses TCP port number 49.
+ 
+4.
+ 
+If the device and ACS server is using TACACS+ then all the AAA packets exchanged 
+between them are encrypted.
+ 
+5.
+ 
+It separates AAA into distinct elements i.e
+ 
+authentication, authorisation and accounting 
+are separated.
+ 
+6.
+ 
+It provides greater granular control (than RADIUS) as the commands that are authorised 
+to be used by the user can be specified.
+ 
+7.
+ 
+It provides accounting support but less extensive than RADIUS.
+ 
+Work
+ing
+ 
+
+ 
+The client of the TACACS+ is called Network Access Device (Nad) or Network Access 
+Server (NAS).Network
+ 
+Access Device will contact the TACACS+ server to obtain a 
+username prompt through
+ 
+CONTINUE
+ 
+message . The user then enters a username and the 
+Network Access Device again contact the TACACS+ server to obtain a password prompt 
+(Continue message) displaying t
+he password prompt to the user, the user enters a 
+password, and the password is then sent to the TACACS+ server.
+ 
+ 
+The server can respond with one of the following reply messages:
+ 
+
+ 
+If the credentials entered are valid then the TACACS+ server will response wi
+th an 
+ACCEPT message.
+ 
+
+ 
+If the credentials entered are not valid then the TACACS+ server will response with an 
+REJECT message.
+ 
+
+ 
+If the link between the TACACS+ server and NAS or TACACS+ server is not working 
+properly then it will respond with an ERROR message
+.
+ 
+
+ 
+If TACACS+ authorization is required, the TACACS+ server is again contacted and it 
+returns an ACCEPT or REJECT authorization response. If the ACCEPT message is 
+returned, it contains attributes which are used to determine services that a user is 
+allowed t
+o do.
+ 
+For accounting, the client will send a REQUEST message to the TACACS+ server for which 
+the Server responds with RESPONSE message stating that record is received.
+ 
+Advantage
+ 
+
+ 
+1.
+ 
+Provides greater granular control than RADIUS.TACACS+ allows a 
+network 
+administrator to define what commands a user may run.
+ 
+2.
+ 
+All the AAA packets are encrypted rather just passwords (in case of Radius).
+ 
+3.
+ 
+TACACS+ uses TCP instead of UDP. TCP guarantees communication between the 
+client and server.
+ 
+Disadvantage
+ 
+
+ 
+1.
+ 
+As it is 
+Cisco proprietary, therefore it can be used between the Cisco devices only.
+ 
+2.
+ 
+Less extensive support for accounting than RADIUS.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Statement of Purpose
+ 
+
+quit
+. I never did, and I have abolished it. This adage is a composite of the life 
+experiences I have assimilated in the academic domain. In the second year of my graduation, I scored 
+poorly in one of the subjects which required an adept understanding of coding
+. Hailing from an IT 
+background, I was expected to perform well, but it turned out to be otherwise, and I was mocked for 
+my inefficiency. You'll be criticized at some point in life, but the decision to fail or succeed depends on 
+
+to work hard and prove my worth. With consistency, perseverance, and 
+dedication, I transformed my destiny and today, owing to my strong background in the Information 
+Technology sector, is the reason why I have decided to apply for admission in the Master o
+f Computer 
+Science program at your esteemed university. My hope and ambition from the Master program at 
+G
+eorge Mason 
+University
+ 
+are that it will thrust me into an all
+-
+new realm of intellectual acquisitions that 
+will act as the wind 
+beneath
+ 
+my wings and let me so
+ar to new heights as a passionate entrepreneur 
+shortly.
+ 
+ 
+As soon as I surpassed my schooling years, I secured my place in the Bachelor of Engineering 
+Technology program. The four year
+-
+program trained me to put my analytical abilities, innovatively 
+creative
+ 
+vision and technical astuteness to good use. Given how 
+-
+inclined I was in computer systems 
+
+me with a very holistic idea of the field. The USP of the un
+dergrad course plunged me into study 
+experiences that equally informed me about the complexities of programming and operating systems. 
+For the most part, though, I enjoyed my undergraduate innings because it helped me refine my technical 
+and analytical tra
+its. While pursuing my undergraduate studies, I mastered research and development, 
+expanding my intellectual capacity and improving my analytical and technical capabilities.
+ 
+ 
+ 
+Right from the onset of the undergraduate program, I ensured that I dug my heels
+ 
+deep in all subjects 
+
+particularly invested in the study experiences. Second
+-
+year onwards, I was exposed to various 
+information technology and computer scien
+
+
+ 
+Data Structures & 
+
+, along with many academic projects that allowed me to gather practical 
+exp
+erience. The courses served as a base for me and I enjoyed hustling with them. But I found my 
+interest in the programming aspect bolstered when I commenced my business venture. Experimenting 
+with a small project, I soon started getting many orders for webs
+ite development. I realized that my 
+technical acumen amalgamated with a creative approach can help me establish myself in this 
+
+help of this project, the user 
+can summarize long texts using three types of input options: Audio, 
+Document, and Text. Based on the option selected, the application will convert the input into plain text, 
+and then the summarizer will convert the text into a simplified output, which is t
+he summary of the text. 
+Depending on the option selected by the user, the summarized result will be displayed on the screen or 
+converted into audio. Then the user will be able to hear the summarized output text.
+ 
+ 
+My internship stint at Farsoft Infotech Pvt
+ 
+Ltd played a vital role in inculcating love and passion for 
+Computer Science. I got an opportunity to juggle various programming languages. Appointed as a Full 
+Stack Web Developer, I worked on a project wherein I created a website for the School ERP syste
+m. 
+Due to my internship at a reputed IT company called Farsoft Infotech Pvt Ltd located in Mumbai, I got 
+hands
+-
+on experience using ASP.NET MVC using C# for Back
+-
+End, HTML, CSS, JavaScript, jQuery 
+for front
+-
+end and Microsoft SQL Server for Database Manageme
+nt System. This internship allowed me 
+to know the various challenges faced during the development and hosting. Positive appreciation and 
+steady demand for my work are two aspects that motivated me to believe in myself and pursue my 
+
+ence.
+ 
+ 
+Along with enriching my grip on the technical aspect, I also worked on my
+ 
+logical and analytical 
+thinking. Owing to my exceptional communication skills, I interacted with a few clients. Further, I 
+consistently proved my worth by working on projects 
+under strict deadlines while maintaining ultimate 
+accuracy. Therefore, I can say that academic expertise is one side of a coin, but the practical execution 
+of your knowledge is the only way to judge your capability and willingness to spend the next 50 year
+s 
+doing the same work. I believe that "programming" has captivated my interest. Further widening my 
+spectrum of knowledge with a post
+-
+graduation in computer science will open gates to accomplish my 
+goals of becoming a reputed Software Developer soon. At th
+is point, I must mention that I did work on 
+a live internship project thrice before 
+
+ 
+School ERP, NGO Website and B2B E
+-
+Commerce Website. 
+The work experiences and my academic trajectory have made me desirous of furthering my abilities as 
+a "programmer" and
+ 
+broadening my knowledge in the disciplines of Computer Science. As a result, I 
+am applying for a place in the graduate program at your university.
+ 
+ 
+With all the efforts I have endured in my academic and professional forays, pursuing higher studies in 
+Comp
+uter Science is the best way to complete the educational journey and commence my professional 
+innings after that. Getting selected in the Master of Computer Science program at 
+G
+eorge Mason 
+University
+ 
+would equip me with the skills and abilities required to trans
+form my dream into a reality. 
+In conjunction with the experienced faculty and the wealth of available resources, the curriculum would 
+create the perfect environment to pursue my continued interest in computer science and information 
+technology. To be in th
+e august company of world
+-
+renowned professors and researchers is a once
+-
+in
+-
+a
+-
+lifetime opportunity to learn and apply the theoretical knowledge gained during the course to solve real
+-
+world problems and attain extensive practical hands
+-
+on experience. I'm con
+vinced that at 
+G
+eorge Mason 
+University
+, I will be able to make the most of the whole rounded development, grow as a student and 
+researcher, and take myself a step closer to my goals. Furthermore, the exposure and credentials I earn 
+at the university will enable 
+me to realize my career dream of working as a Website Developer in a 
+reputable company, being a part of a team, and later leading the team that is doing some pioneering 
+work and making a difference.
+  
+To conclude, I am sure that I will add value to the grad
+uate program at 
+G
+eorge Mason 
+University
+ 
+as I am driven and dedicated. I want to utilize this academic platform to 
+interact with like
+-
+minded individuals and discover the uncharted territory in this domain.
+ 
+Statement of Purpose
+ 
+
+quit
+. I never did, and I have abolished it. This adage is a composite of the life 
+experiences I have assimilated in the academic domain. In the second year of my graduation, I scored 
+poorly in one of the subjects which required an adept understanding of coding
+. Hailing from an IT 
+background, I was expected to perform well, but it turned out to be otherwise, and I was mocked for 
+my inefficiency. You'll be criticized at some point in life, but the decision to fail or succeed depends on 
+
+to work hard and prove my worth. With consistency, perseverance, and 
+dedication, I transformed my destiny and today, owing to my strong background in the Information 
+Technology sector, is the reason why I have decided to apply for admission in the Master o
+f Computer 
+Science program at your esteemed university. My hope and ambition from the Master program at 
+G
+eorge Mason 
+University
+ 
+are that it will thrust me into an all
+-
+new realm of intellectual acquisitions that 
+will act as the wind 
+beneath
+ 
+my wings and let me so
+ar to new heights as a passionate entrepreneur 
+shortly.
+ 
+ 
+As soon as I surpassed my schooling years, I secured my place in the Bachelor of Engineering 
+Technology program. The four year
+-
+program trained me to put my analytical abilities, innovatively 
+creative
+ 
+vision and technical astuteness to good use. Given how 
+-
+inclined I was in computer systems 
+
+me with a very holistic idea of the field. The USP of the un
+dergrad course plunged me into study 
+experiences that equally informed me about the complexities of programming and operating systems. 
+For the most part, though, I enjoyed my undergraduate innings because it helped me refine my technical 
+and analytical tra
+its. While pursuing my undergraduate studies, I mastered research and development, 
+expanding my intellectual capacity and improving my analytical and technical capabilities.
+ 
+ 
+ 
+Right from the onset of the undergraduate program, I ensured that I dug my heels
+ 
+deep in all subjects 
+
+particularly invested in the study experiences. Second
+-
+year onwards, I was exposed to various 
+information technology and computer scien
+
+
+ 
+Data Structures & 
+
+, along with many academic projects that allowed me to gather practical 
+exp
+erience. The courses served as a base for me and I enjoyed hustling with them. But I found my 
+interest in the programming aspect bolstered when I commenced my business venture. Experimenting 
+with a small project, I soon started getting many orders for webs
+ite development. I realized that my 
+technical acumen amalgamated with a creative approach can help me establish myself in this 
+
+help of this project, the user 
+can summarize long texts using three types of input options: Audio, 
+Document, and Text. Based on the option selected, the application will convert the input into plain text, 
+and then the summarizer will convert the text into a simplified output, which is t
+he summary of the text. 
+Depending on the option selected by the user, the summarized result will be displayed on the screen or 
+converted into audio. Then the user will be able to hear the summarized output text.
+ 
+ 
+My internship stint at Farsoft Infotech Pvt
+ 
+Ltd played a vital role in inculcating love and passion for 
+Computer Science. I got an opportunity to juggle various programming languages. Appointed as a Full 
+Stack Web Developer, I worked on a project wherein I created a website for the School ERP syste
+m. 
+Due to my internship at a reputed IT company called Farsoft Infotech Pvt Ltd located in Mumbai, I got 
+hands
+-
+on experience using ASP.NET MVC using C# for Back
+-
+End, HTML, CSS, JavaScript, jQuery 
+for front
+-
+end and Microsoft SQL Server for Database Manageme
+nt System. This internship allowed me 
+to know the various challenges faced during the development and hosting. Positive appreciation and 
+steady demand for my work are two aspects that motivated me to believe in myself and pursue my 
+
+ence.
+ 
+ 
+Along with enriching my grip on the technical aspect, I also worked on my
+ 
+logical and analytical 
+thinking. Owing to my exceptional communication skills, I interacted with a few clients. Further, I 
+consistently proved my worth by working on projects 
+under strict deadlines while maintaining ultimate 
+accuracy. Therefore, I can say that academic expertise is one side of a coin, but the practical execution 
+of your knowledge is the only way to judge your capability and willingness to spend the next 50 year
+s 
+doing the same work. I believe that "programming" has captivated my interest. Further widening my 
+spectrum of knowledge with a post
+-
+graduation in computer science will open gates to accomplish my 
+goals of becoming a reputed Software Developer soon. At th
+is point, I must mention that I did work on 
+a live internship project thrice before 
+
+ 
+School ERP, NGO Website and B2B E
+-
+Commerce Website. 
+The work experiences and my academic trajectory have made me desirous of furthering my abilities as 
+a "programmer" and
+ 
+broadening my knowledge in the disciplines of Computer Science. As a result, I 
+am applying for a place in the graduate program at your university.
+ 
+ 
+With all the efforts I have endured in my academic and professional forays, pursuing higher studies in 
+Comp
+uter Science is the best way to complete the educational journey and commence my professional 
+innings after that. Getting selected in the Master of Computer Science program at 
+G
+eorge Mason 
+University
+ 
+would equip me with the skills and abilities required to trans
+form my dream into a reality. 
+In conjunction with the experienced faculty and the wealth of available resources, the curriculum would 
+create the perfect environment to pursue my continued interest in computer science and information 
+technology. To be in th
+e august company of world
+-
+renowned professors and researchers is a once
+-
+in
+-
+a
+-
+lifetime opportunity to learn and apply the theoretical knowledge gained during the course to solve real
+-
+world problems and attain extensive practical hands
+-
+on experience. I'm con
+vinced that at 
+G
+eorge Mason 
+University
+, I will be able to make the most of the whole rounded development, grow as a student and 
+researcher, and take myself a step closer to my goals. Furthermore, the exposure and credentials I earn 
+at the university will enable 
+me to realize my career dream of working as a Website Developer in a 
+reputable company, being a part of a team, and later leading the team that is doing some pioneering 
+work and making a difference.
+  
+To conclude, I am sure that I will add value to the grad
+uate program at 
+G
+eorge Mason 
+University
+ 
+as I am driven and dedicated. I want to utilize this academic platform to 
+interact with like
+-
+minded individuals and discover the uncharted territory in this domain.
+ 
+Statement of Purpose
+ 
+
+quit
+. I never did, and I have abolished it. This adage is a composite of the life 
+experiences I have assimilated in the academic domain. In the second year of my graduation, I scored 
+poorly in one of the subjects which required an adept understanding of coding
+. Hailing from an IT 
+background, I was expected to perform well, but it turned out to be otherwise, and I was mocked for 
+my inefficiency. You'll be criticized at some point in life, but the decision to fail or succeed depends on 
+
+to work hard and prove my worth. With consistency, perseverance, and 
+dedication, I transformed my destiny and today, owing to my strong background in the Information 
+Technology sector, is the reason why I have decided to apply for admission in the Master o
+f Computer 
+Science program at your esteemed university. My hope and ambition from the Master program at 
+G
+eorge Mason 
+University
+ 
+are that it will thrust me into an all
+-
+new realm of intellectual acquisitions that 
+will act as the wind 
+beneath
+ 
+my wings and let me so
+ar to new heights as a passionate entrepreneur 
+shortly.
+ 
+ 
+As soon as I surpassed my schooling years, I secured my place in the Bachelor of Engineering 
+Technology program. The four year
+-
+program trained me to put my analytical abilities, innovatively 
+creative
+ 
+vision and technical astuteness to good use. Given how 
+-
+inclined I was in computer systems 
+
+me with a very holistic idea of the field. The USP of the un
+dergrad course plunged me into study 
+experiences that equally informed me about the complexities of programming and operating systems. 
+For the most part, though, I enjoyed my undergraduate innings because it helped me refine my technical 
+and analytical tra
+its. While pursuing my undergraduate studies, I mastered research and development, 
+expanding my intellectual capacity and improving my analytical and technical capabilities.
+ 
+ 
+ 
+Right from the onset of the undergraduate program, I ensured that I dug my heels
+ 
+deep in all subjects 
+
+particularly invested in the study experiences. Second
+-
+year onwards, I was exposed to various 
+information technology and computer scien
+
+
+ 
+Data Structures & 
+
+, along with many academic projects that allowed me to gather practical 
+exp
+erience. The courses served as a base for me and I enjoyed hustling with them. But I found my 
+interest in the programming aspect bolstered when I commenced my business venture. Experimenting 
+with a small project, I soon started getting many orders for webs
+ite development. I realized that my 
+technical acumen amalgamated with a creative approach can help me establish myself in this 
+
+help of this project, the user 
+can summarize long texts using three types of input options: Audio, 
+Document, and Text. Based on the option selected, the application will convert the input into plain text, 
+and then the summarizer will convert the text into a simplified output, which is t
+he summary of the text. 
+Depending on the option selected by the user, the summarized result will be displayed on the screen or 
+converted into audio. Then the user will be able to hear the summarized output text.
+ 
+ 
+My internship stint at Farsoft Infotech Pvt
+ 
+Ltd played a vital role in inculcating love and passion for 
+Computer Science. I got an opportunity to juggle various programming languages. Appointed as a Full 
+Stack Web Developer, I worked on a project wherein I created a website for the School ERP syste
+m. 
+Due to my internship at a reputed IT company called Farsoft Infotech Pvt Ltd located in Mumbai, I got 
+hands
+-
+on experience using ASP.NET MVC using C# for Back
+-
+End, HTML, CSS, JavaScript, jQuery 
+for front
+-
+end and Microsoft SQL Server for Database Manageme
+nt System. This internship allowed me 
+to know the various challenges faced during the development and hosting. Positive appreciation and 
+steady demand for my work are two aspects that motivated me to believe in myself and pursue my 
+
+ence.
+ 
+ 
+Along with enriching my grip on the technical aspect, I also worked on my
+ 
+logical and analytical 
+thinking. Owing to my exceptional communication skills, I interacted with a few clients. Further, I 
+consistently proved my worth by working on projects 
+under strict deadlines while maintaining ultimate 
+accuracy. Therefore, I can say that academic expertise is one side of a coin, but the practical execution 
+of your knowledge is the only way to judge your capability and willingness to spend the next 50 year
+s 
+doing the same work. I believe that "programming" has captivated my interest. Further widening my 
+spectrum of knowledge with a post
+-
+graduation in computer science will open gates to accomplish my 
+goals of becoming a reputed Software Developer soon. At th
+is point, I must mention that I did work on 
+a live internship project thrice before 
+
+ 
+School ERP, NGO Website and B2B E
+-
+Commerce Website. 
+The work experiences and my academic trajectory have made me desirous of furthering my abilities as 
+a "programmer" and
+ 
+broadening my knowledge in the disciplines of Computer Science. As a result, I 
+am applying for a place in the graduate program at your university.
+ 
+ 
+With all the efforts I have endured in my academic and professional forays, pursuing higher studies in 
+Comp
+uter Science is the best way to complete the educational journey and commence my professional 
+innings after that. Getting selected in the Master of Computer Science program at 
+G
+eorge Mason 
+University
+ 
+would equip me with the skills and abilities required to trans
+form my dream into a reality. 
+In conjunction with the experienced faculty and the wealth of available resources, the curriculum would 
+create the perfect environment to pursue my continued interest in computer science and information 
+technology. To be in th
+e august company of world
+-
+renowned professors and researchers is a once
+-
+in
+-
+a
+-
+lifetime opportunity to learn and apply the theoretical knowledge gained during the course to solve real
+-
+world problems and attain extensive practical hands
+-
+on experience. I'm con
+vinced that at 
+G
+eorge Mason 
+University
+, I will be able to make the most of the whole rounded development, grow as a student and 
+researcher, and take myself a step closer to my goals. Furthermore, the exposure and credentials I earn 
+at the university will enable 
+me to realize my career dream of working as a Website Developer in a 
+reputable company, being a part of a team, and later leading the team that is doing some pioneering 
+work and making a difference.
+  
+To conclude, I am sure that I will add value to the grad
+uate program at 
+G
+eorge Mason 
+University
+ 
+as I am driven and dedicated. I want to utilize this academic platform to 
+interact with like
+-
+minded individuals and discover the uncharted territory in this domain.
+ 

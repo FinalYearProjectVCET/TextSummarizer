@@ -86,7 +86,7 @@ def main():
     
     output_language = st.sidebar.selectbox("Select Output Language", languages)
 
-    input_type = st.selectbox("Select Input Type", ["Text", "Audio", "Document"])    
+    input_type = st.selectbox("Select Input Type", ["Text", "Audio", "PDF Document", "Word Document"])    
 
     input_text = ""
     audio_path = ""
@@ -99,7 +99,7 @@ def main():
         # audio = st.file_uploader("Audio File")
         audio_path = st.text_input("Audio Path")
 
-    elif input_type == "Document":
+    elif input_type == "PDF Document" or input_type == "Word Document":
         file_path = st.text_input("File Path")
 
     if st.button('Submit'):
@@ -115,9 +115,13 @@ def main():
         elif input_type == "Audio":
             obj = speech_to_text.SpeechToText()
             input_text = obj.convertSpeechToText(audio_path)
-        elif input_type == "Document":
+        elif input_type == "PDF Document":
             obj = extract_document.Document()
-            input_text = obj.extractPDF(file_path)
+            input_text = obj.extractPDFDocument(file_path)
+            # st.write("CONTENT ", input_text)
+        elif input_type == "Word Document":
+            obj = extract_document.Document()
+            input_text = obj.extractWordDocument(file_path)
             # st.write("CONTENT ", input_text)
 
         print(input_text)

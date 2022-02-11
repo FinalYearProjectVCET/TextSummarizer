@@ -1,9 +1,9 @@
-import PyPDF2 
-
 class Document:
     
-    def extractPDF(self, inputFileName):
+    def extractPDFDocument(self, inputFileName):
         
+        import PyPDF2 
+
         input_text = ""
         
         pdfFileobj = open(inputFileName,'rb')
@@ -22,3 +22,16 @@ class Document:
         pdfFileobj.close()
 
         return input_text
+
+    def extractWordDocument(self, inputFileName):
+        import docx
+
+        input_text = ""
+
+        doc = docx.Document(inputFileName)
+        all_paras = doc.paragraphs
+
+        for para in all_paras:
+            input_text += para.text
+
+        return input_text        

@@ -49,8 +49,8 @@ def summarize(summarization_type, summarization_technique, input_text, input_rat
             return obj.predictText(input_text)
     elif summarization_type == "Extractive":
         if summarization_technique == "Gensim":            
-            obj = gensim_model.GensimClass()
-            return obj.gensim_method(input_text, input_ratio)        
+            obj = gensim_model.GensimClass()            
+            return obj.gensim_method(input_text, input_ratio)             
         elif summarization_technique == "Rule Based":        
             obj = rulebased_model.RuleBased()
             return obj.rule_summarize(input_text, input_number_of_lines)
@@ -124,11 +124,14 @@ def main():
             input_text = obj.extractWordDocument(file_path)
             # st.write("CONTENT ", input_text)
 
-        print(input_text)
+        # print(input_text)
 
         output_text = summarize(summarization_type, summarization_technique, input_text, input_ratio, input_number_of_lines)
 
-        output_text = translateToLanuage(output_text[0], output_language)
+        if summarization_technique == "Gensim":
+            output_text = translateToLanuage(output_text, output_language)
+        else:
+            output_text = translateToLanuage(output_text[0], output_language)
 
         # print(input_text)
         # print(output_text)

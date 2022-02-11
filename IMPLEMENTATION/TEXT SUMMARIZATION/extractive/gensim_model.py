@@ -3,14 +3,9 @@ import gensim
 class GensimClass:
 
     def gensim_method(self,taketext,takeratio):
-        
         text = taketext
         givenratio = float(takeratio)
         lengthtext=len(text)
-        # print(type(givenratio))
         summarized_content = gensim.summarization.summarize(text, ratio=givenratio)
-        # print(summarized_content)
-        lengthsumm = len(summarized_content)
-        # print(lengthtext)
-        # print(lengthsumm)
+        print(type(summarized_content))
         return summarized_content

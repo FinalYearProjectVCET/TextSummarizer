@@ -17,6 +17,7 @@ pip install SentencePiece
 pip install ffmpeg
 pip install pyttsx3
 pip install googletrans
+pip install python-docx 
 
 # HARDWARE REQUIREMENTS
 

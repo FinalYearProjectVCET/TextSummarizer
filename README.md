@@ -16,6 +16,7 @@ pip install pydub
 pip install SentencePiece
 pip install ffmpeg
 pip install pyttsx3
+pip install googletrans
 
 # HARDWARE REQUIREMENTS
 

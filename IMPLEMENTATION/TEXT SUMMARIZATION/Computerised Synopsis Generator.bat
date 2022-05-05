@@ -1,0 +1,1 @@
+streamlit run "Computerised Synopsis Generator.py"

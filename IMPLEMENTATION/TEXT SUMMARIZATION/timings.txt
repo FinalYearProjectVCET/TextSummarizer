@@ -1,0 +1,21 @@
+abs pegasus head    (jon back to furture) 1000 words 22s with audio  English
+abs pegasus summary (jon back to furture) 1000 words 40s with audio  English
+Ext Gebsim 0.2      (speech.wav)          1min25secs 35s with audio  English
+Ext RuleBased       (assignment.pdf)      1074 words 10s with audio  English
+Ext Text Rank       (SOP.docx)            1164 words 10s with audio  Hindi
+Ext Pegasus         (health.wav)          7mins      4mins30 secs to convert to text 30s summary no audio
+Ext Pegasus         (health.wav)          7mins      4mins30 secs to convert to text 30s 10s summary 10s marathi audio
+Ext Gensim          (mkbhd.wav)           18mins     10mins30secs to convert to text 45secs summary 10s english output
+
+
+
+
+ 
+
+
+
+4 inputs
+2 abs
+4 ext
+2 outputs
+8 languages
